@@ -1,0 +1,211 @@
+{
+  "system": "You optimise a deterministic JavaScript scheduling function. Reply ONLY with the complete function solve(times), optionally in a javascript code fence. No explanations or tools. Fit the complete program in 1536 output tokens.\ntimes[job][machine] contains positive integer processing times. All jobs visit machines in order; each machine handles one job at a time. All machines use the same job permutation. Minimise final completion time (makespan). Return every job index exactly once. Never modify evaluation code or hardcode instances. Function must handle arbitrary 18-40 jobs and 4-7 machines, deterministic, under 500ms per instance. No imports, filesystem, network, Date, or Math.random. Helpers must be inside solve. Preserve a working candidate when improving it.",
+  "history": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Improve this current best candidate. Development score (mean makespan/baseline, lower better): 1.\nCurrent code:\nfunction solve(times) {\n  return times.map((row, i) => i).sort((a,b) =>\n    times[b].reduce((s,x)=>s+x,0)-times[a].reduce((s,x)=>s+x,0) || a-b);\n}\nFactual development ledger:\n[]\nPropose one complete improved function. Evaluation covers independent instances; optimise generally."
+        }
+      ],
+      "timestamp": 1792082923050
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "I need to analyze this scheduling problem. This is a permutation flow shop problem where all jobs visit machines in the same order, and I need to find the job permutation that minimizes makespan.\n\nThe current solution uses Johnson's rule approximation (sorting by total processing time descending). For flow shops, Johnson's rule is optimal for 2 machines but a heuristic for more. Let me implement a better heuristic using a combination of approaches:\n\n1. **Johnson's rule for 2-machine case** (optimal)\n2. **For >2 machines**: Use the Palmer heuristic (sort by sum of first half minus sum of second half) or a more sophisticated approach\n3. **Local search improvements**: Try pairwise swaps to improve the schedule\n\nLet me implement a solution that:\n- Computes makespan for a given permutation\n- Uses a good initial heuristic (Palmer's rule: sort by sum of first half machines minus sum of last half machines)\n- Applies local search with pairwise swaps to improve\n\n```javascript\nfunction solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n  \n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (const job of order) {\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n  \n  // Palmer heuristic: sort by sum of first half - sum of last half\n  const half = Math.floor(m / 2);\n  const scores = times.map((row, i) => {\n    let s = 0;\n    for (let k = 0; k < half; k++) s += row[k];\n    for (let k = m - 1 - half + 1; k < m; k++) s -= row[k];\n    return { i, s };\n  });\n  scores.sort((a, b) => a.s - b.s || a.i - b.i);\n  let best = scores.map(x => x.i);\n  let bestMs = makespan(best);\n  \n  // Local search: pairwise swaps\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < 200) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        const trial = best.slice();\n        const tmp = trial[i];\n        trial[i] = trial[j];\n        trial[j] = tmp;\n        const ms = makespan(trial);\n        if (ms < bestMs) {\n          best = trial;\n          bestMs = ms;\n          improved = true;\n        }\n      }\n    }\n  }\n  \n  return best;\n}\n```"
+        }
+      ],
+      "api": "openai-completions",
+      "provider": "ollama",
+      "model": "qwen38-27b-q8-coding",
+      "usage": {
+        "input": 103,
+        "output": 669,
+        "cacheRead": 218,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 990,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      "stopReason": "stop",
+      "timestamp": 1792082923050,
+      "responseId": "chatcmpl-805",
+      "rawStopReason": "stop"
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Improve this current best candidate. Development score (mean makespan/baseline, lower better): 1.\nCurrent code:\nfunction solve(times) {\n  return times.map((row, i) => i).sort((a,b) =>\n    times[b].reduce((s,x)=>s+x,0)-times[a].reduce((s,x)=>s+x,0) || a-b);\n}\nFactual development ledger:\n[{\"id\":\"r2-warm-1\",\"valid\":false,\"error\":\"Unexpected identifier 'need'\",\"failedCase\":0,\"completed\":0,\"accepted\":false}]\nPropose one complete improved function. Evaluation covers independent instances; optimise generally."
+        }
+      ],
+      "timestamp": 1792082963001
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "```javascript\nfunction solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  // Initial heuristic: Johnson-like for 2 machines, Palmer for more\n  let best;\n  if (m === 2) {\n    // Johnson's rule: partition into A (times[i][0] < times[i][1]) and B\n    const A = [];\n    const B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    best = A.concat(B);\n  } else {\n    // Palmer's heuristic: sort by sum(first half) - sum(second half)\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    best = Array.from({ length: n }, (_, i) => i);\n    best.sort((a, b) => scores[a] - scores[b] || a - b);\n  }\n\n  let bestMs = makespan(best);\n\n  // Local search with pairwise swaps\n  const maxIter = n <= 20 ? 300 : 150;\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n        } else {\n          swap(best, i, j);\n        }\n      }\n    }\n  }\n\n  return best;\n}\n```"
+        }
+      ],
+      "api": "openai-completions",
+      "provider": "ollama",
+      "model": "qwen38-27b-q8-coding",
+      "usage": {
+        "input": 159,
+        "output": 714,
+        "cacheRead": 989,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1862,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      "stopReason": "stop",
+      "timestamp": 1792082963002,
+      "responseId": "chatcmpl-697",
+      "rawStopReason": "stop"
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Improve this current best candidate. Development score (mean makespan/baseline, lower better): 0.9336991780012865.\nCurrent code:\nfunction solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  // Initial heuristic: Johnson-like for 2 machines, Palmer for more\n  let best;\n  if (m === 2) {\n    // Johnson's rule: partition into A (times[i][0] < times[i][1]) and B\n    const A = [];\n    const B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    best = A.concat(B);\n  } else {\n    // Palmer's heuristic: sort by sum(first half) - sum(second half)\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    best = Array.from({ length: n }, (_, i) => i);\n    best.sort((a, b) => scores[a] - scores[b] || a - b);\n  }\n\n  let bestMs = makespan(best);\n\n  // Local search with pairwise swaps\n  const maxIter = n <= 20 ? 300 : 150;\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n        } else {\n          swap(best, i, j);\n        }\n      }\n    }\n  }\n\n  return best;\n}\nFactual development ledger:\n[{\"id\":\"r2-warm-1\",\"valid\":false,\"error\":\"Unexpected identifier 'need'\",\"failedCase\":0,\"completed\":0,\"accepted\":false},{\"id\":\"r2-warm-2\",\"valid\":true,\"score\":0.9336991780012865,\"cases\":[{\"makespan\":1105,\"baseline\":1224},{\"makespan\":1241,\"baseline\":1369},{\"makespan\":4974,\"baseline\":5245},{\"makespan\":2025,\"baseline\":2420},{\"makespan\":1725,\"baseline\":1791},{\"makespan\":3731,\"baseline\":3859},{\"makespan\":1705,\"baseline\":1847},{\"makespan\":1806,\"baseline\":1928},{\"makespan\":5708,\"baseline\":5841},{\"makespan\":2236,\"baseline\":2422},{\"makespan\":1296,\"baseline\":1340},{\"makespan\":4018,\"baseline\":4218}],\"accepted\":true}]\nPropose one complete improved function. Evaluation covers independent instances; optimise generally."
+        }
+      ],
+      "timestamp": 1792083533618
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "```javascript\nfunction solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  let best;\n  if (m === 2) {\n    const A = [];\n    const B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    best = A.concat(B);\n  } else {\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    best = Array.from({ length: n }, (_, i) => i);\n    best.sort((a, b) => scores[a] - scores[b] || a - b);\n  }\n\n  let bestMs = makespan(best);\n\n  // Multiple restarts with different initial heuristics\n  const heuristics = [];\n  // Total processing time ascending\n  heuristics.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => {\n    let sa = 0, sb = 0;\n    for (let k = 0; k < m; k++) { sa += times[a][k]; sb += times[b][k]; }\n    return sa - sb || a - b;\n  }));\n  // First machine ascending\n  heuristics.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => times[a][0] - times[b][0] || a - b));\n  // Last machine descending\n  heuristics.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => times[b][m-1] - times[a][m-1] || a - b));\n\n  for (const h of heuristics) {\n    const ms = makespan(h);\n    if (ms < bestMs) {\n      best = h;\n      bestMs = ms;\n    }\n  }\n\n  // Local search with pairwise swaps\n  const maxIter = n <= 20 ? 400 : 200;\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n        } else {\n          swap(best, i, j);\n        }\n      }\n    }\n  }\n\n  return best;\n}\n```"
+        }
+      ],
+      "api": "openai-completions",
+      "provider": "ollama",
+      "model": "qwen38-27b-q8-coding",
+      "usage": {
+        "input": 1047,
+        "output": 920,
+        "cacheRead": 1861,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 3828,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      "stopReason": "stop",
+      "timestamp": 1792083533618,
+      "responseId": "chatcmpl-588",
+      "rawStopReason": "stop"
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Improve this current best candidate. Development score (mean makespan/baseline, lower better): 0.9336991780012865.\nCurrent code:\nfunction solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  // Initial heuristic: Johnson-like for 2 machines, Palmer for more\n  let best;\n  if (m === 2) {\n    // Johnson's rule: partition into A (times[i][0] < times[i][1]) and B\n    const A = [];\n    const B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    best = A.concat(B);\n  } else {\n    // Palmer's heuristic: sort by sum(first half) - sum(second half)\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    best = Array.from({ length: n }, (_, i) => i);\n    best.sort((a, b) => scores[a] - scores[b] || a - b);\n  }\n\n  let bestMs = makespan(best);\n\n  // Local search with pairwise swaps\n  const maxIter = n <= 20 ? 300 : 150;\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n        } else {\n          swap(best, i, j);\n        }\n      }\n    }\n  }\n\n  return best;\n}\nFactual development ledger:\n[{\"id\":\"r2-warm-1\",\"valid\":false,\"error\":\"Unexpected identifier 'need'\",\"failedCase\":0,\"completed\":0,\"accepted\":false},{\"id\":\"r2-warm-2\",\"valid\":true,\"score\":0.9336991780012865,\"cases\":[{\"makespan\":1105,\"baseline\":1224},{\"makespan\":1241,\"baseline\":1369},{\"makespan\":4974,\"baseline\":5245},{\"makespan\":2025,\"baseline\":2420},{\"makespan\":1725,\"baseline\":1791},{\"makespan\":3731,\"baseline\":3859},{\"makespan\":1705,\"baseline\":1847},{\"makespan\":1806,\"baseline\":1928},{\"makespan\":5708,\"baseline\":5841},{\"makespan\":2236,\"baseline\":2422},{\"makespan\":1296,\"baseline\":1340},{\"makespan\":4018,\"baseline\":4218}],\"accepted\":true},{\"id\":\"r2-continuation-b1-1\",\"valid\":true,\"score\":0.9354956959286082,\"cases\":[{\"makespan\":1105,\"baseline\":1224},{\"makespan\":1255,\"baseline\":1369},{\"makespan\":4955,\"baseline\":5245},{\"makespan\":2025,\"baseline\":2420},{\"makespan\":1742,\"baseline\":1791},{\"makespan\":3731,\"baseline\":3859},{\"makespan\":1705,\"baseline\":1847},{\"makespan\":1806,\"baseline\":1928},{\"makespan\":5708,\"baseline\":5841},{\"makespan\":2242,\"baseline\":2422},{\"makespan\":1300,\"baseline\":1340},{\"makespan\":4018,\"baseline\":4218}],\"accepted\":false}]\nPropose one complete improved function. Evaluation covers independent instances; optimise generally."
+        }
+      ],
+      "timestamp": 1792083589055
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "```javascript\nfunction solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  function localSearch(start) {\n    const cur = start.slice();\n    let bestMs = makespan(cur);\n    let improved = true;\n    let iter = 0;\n    const maxIter = n <= 20 ? 400 : 200;\n    while (improved && iter < maxIter) {\n      improved = false;\n      iter++;\n      for (let i = 0; i < n; i++) {\n        for (let j = i + 1; j < n; j++) {\n          swap(cur, i, j);\n          const ms = makespan(cur);\n          if (ms < bestMs) {\n            bestMs = ms;\n            improved = true;\n          } else {\n            swap(cur, i, j);\n          }\n        }\n      }\n    }\n    return { order: cur, ms: bestMs };\n  }\n\n  // Build multiple initial candidates\n  const candidates = [];\n\n  // Palmer's heuristic\n  if (m > 2) {\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    const p = Array.from({ length: n }, (_, i) => i).sort((a, b) => scores[a] - scores[b] || a - b);\n    candidates.push(p);\n  }\n\n  // Johnson's rule for 2 machines\n  if (m === 2) {\n    const A = [], B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    candidates.push(A.concat(B));\n  }\n\n  // Total processing time ascending\n  const totals = new Array(n);\n  for (let i = 0; i < n; i++) {\n    let s = 0;\n    for (let k = 0; k < m; k++) s += times[i][k];\n    totals[i] = s;\n  }\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => totals[a] - totals[b] || a - b));\n\n  // First machine ascending\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => times[a][0] - times[b][0] || a - b));\n\n  // Last machine descending\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => times[b][m - 1] - times[a][m - 1] || a - b));\n\n  // Best candidate by initial makespan\n  let bestOrder = candidates[0];\n  let bestMs = makespan(bestOrder);\n  for (const c of candidates) {\n    const ms = makespan(c);\n    if (ms < bestMs) {\n      bestMs = ms;\n      bestOrder = c;\n    }\n  }\n\n  // Local search from best initial\n  const result = localSearch(bestOrder);\n  return result.order;\n}\n```"
+        }
+      ],
+      "api": "openai-completions",
+      "provider": "ollama",
+      "model": "qwen38-27b-q8-coding",
+      "usage": {
+        "input": 1271,
+        "output": 1020,
+        "cacheRead": 3827,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 6118,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      "stopReason": "stop",
+      "timestamp": 1792083589056,
+      "responseId": "chatcmpl-888",
+      "rawStopReason": "stop"
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Improve this current best candidate. Development score (mean makespan/baseline, lower better): 0.9336991780012865.\nCurrent code:\nfunction solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  // Initial heuristic: Johnson-like for 2 machines, Palmer for more\n  let best;\n  if (m === 2) {\n    // Johnson's rule: partition into A (times[i][0] < times[i][1]) and B\n    const A = [];\n    const B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    best = A.concat(B);\n  } else {\n    // Palmer's heuristic: sort by sum(first half) - sum(second half)\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    best = Array.from({ length: n }, (_, i) => i);\n    best.sort((a, b) => scores[a] - scores[b] || a - b);\n  }\n\n  let bestMs = makespan(best);\n\n  // Local search with pairwise swaps\n  const maxIter = n <= 20 ? 300 : 150;\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n        } else {\n          swap(best, i, j);\n        }\n      }\n    }\n  }\n\n  return best;\n}\nFactual development ledger:\n[{\"id\":\"r2-warm-1\",\"valid\":false,\"error\":\"Unexpected identifier 'need'\",\"failedCase\":0,\"completed\":0,\"accepted\":false},{\"id\":\"r2-warm-2\",\"valid\":true,\"score\":0.9336991780012865,\"cases\":[{\"makespan\":1105,\"baseline\":1224},{\"makespan\":1241,\"baseline\":1369},{\"makespan\":4974,\"baseline\":5245},{\"makespan\":2025,\"baseline\":2420},{\"makespan\":1725,\"baseline\":1791},{\"makespan\":3731,\"baseline\":3859},{\"makespan\":1705,\"baseline\":1847},{\"makespan\":1806,\"baseline\":1928},{\"makespan\":5708,\"baseline\":5841},{\"makespan\":2236,\"baseline\":2422},{\"makespan\":1296,\"baseline\":1340},{\"makespan\":4018,\"baseline\":4218}],\"accepted\":true},{\"id\":\"r2-continuation-b1-1\",\"valid\":true,\"score\":0.9354956959286082,\"cases\":[{\"makespan\":1105,\"baseline\":1224},{\"makespan\":1255,\"baseline\":1369},{\"makespan\":4955,\"baseline\":5245},{\"makespan\":2025,\"baseline\":2420},{\"makespan\":1742,\"baseline\":1791},{\"makespan\":3731,\"baseline\":3859},{\"makespan\":1705,\"baseline\":1847},{\"makespan\":1806,\"baseline\":1928},{\"makespan\":5708,\"baseline\":5841},{\"makespan\":2242,\"baseline\":2422},{\"makespan\":1300,\"baseline\":1340},{\"makespan\":4018,\"baseline\":4218}],\"accepted\":false},{\"id\":\"r2-continuation-b1-2\",\"valid\":true,\"score\":0.9354956959286082,\"cases\":[{\"makespan\":1105,\"baseline\":1224},{\"makespan\":1255,\"baseline\":1369},{\"makespan\":4955,\"baseline\":5245},{\"makespan\":2025,\"baseline\":2420},{\"makespan\":1742,\"baseline\":1791},{\"makespan\":3731,\"baseline\":3859},{\"makespan\":1705,\"baseline\":1847},{\"makespan\":1806,\"baseline\":1928},{\"makespan\":5708,\"baseline\":5841},{\"makespan\":2242,\"baseline\":2422},{\"makespan\":1300,\"baseline\":1340},{\"makespan\":4018,\"baseline\":4218}],\"accepted\":false}]\nPropose one complete improved function. Evaluation covers independent instances; optimise generally."
+        }
+      ],
+      "timestamp": 1792083652104
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "```javascript\nfunction solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  // Precompute totals and per-machine times\n  const totals = new Array(n);\n  for (let i = 0; i < n; i++) {\n    let s = 0;\n    for (let k = 0; k < m; k++) s += times[i][k];\n    totals[i] = s;\n  }\n\n  // Generate multiple initial candidates\n  const candidates = [];\n\n  // Palmer's heuristic\n  if (m > 2) {\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => scores[a] - scores[b] || a - b));\n  }\n\n  // Johnson's rule for 2 machines\n  if (m === 2) {\n    const A = [], B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    candidates.push(A.concat(B));\n  }\n\n  // Total processing time ascending\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => totals[a] - totals[b] || a - b));\n\n  // First machine ascending\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => times[a][0] - times[b][0] || a - b));\n\n  // Last machine descending\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => times[b][m - 1] - times[a][m - 1] || a - b));\n\n  // Min-max ratio: sort by min/max processing time\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => {\n    let mina = Infinity, maxa = 0, minb = Infinity, maxb = 0;\n    for (let k = 0; k < m; k++) {\n      if (times[a][k] < mina) mina = times[a][k];\n      if (times[a][k] > maxa) maxa = times[a][k];\n      if (times[b][k] < minb) minb = times[b][k];\n      if (times[b][k] > maxb) maxb = times[b][k];\n    }\n    const ra = mina / maxa, rb = minb / maxb;\n    return ra - rb || a - b;\n  }));\n\n  // Pick best initial by makespan\n  let bestOrder = candidates[0];\n  let bestMs = makespan(bestOrder);\n  for (let c = 1; c < candidates.length; c++) {\n    const ms = makespan(candidates[c]);\n    if (ms < bestMs) {\n      bestMs = ms;\n      bestOrder = candidates[c];\n    }\n  }\n\n  // Local search: pairwise swaps with first-improvement\n  const cur = bestOrder.slice();\n  let curMs = bestMs;\n  let improved = true;\n  let iter = 0;\n  const maxIter = n <= 20 ? 500 : 250;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(cur, i, j);\n        const ms = makespan(cur);\n        if (ms < curMs) {\n          curMs = ms;\n          improved = true;\n        } else {\n          swap(cur, i, j);\n        }\n      }\n    }\n  }\n\n  // Second pass: try insert moves (remove job, reinsert at best position)\n  let improved2 = true;\n  let iter2 = 0;\n  const maxIter2 = n <= 20 ? 200 : 100;\n  while (improved2 && iter2 < maxIter2) {\n    improved2 = false;\n    iter2++;\n    for (let i = 0; i < n; i++) {\n      const job = cur[i];\n      cur.splice(i, 1);\n      let bestPos = i;\n      let bestMsPos = Infinity;\n      for (let pos = 0; pos < n; pos++) {\n        cur.splice(pos, 0, job);\n        const ms = makespan(cur);\n        if (ms < bestMsPos) {\n          bestMsPos = ms;\n          bestPos = pos;\n        }\n        cur.splice(pos, 1);\n      }\n      cur.splice(bestPos, 0, job);\n      if (bestMsPos < curMs) {\n        curMs = bestMsPos;\n        improved2 = true;\n      }\n    }\n  }\n\n  // Final pairwise pass\n  let improved3 = true;\n  let iter3 = 0;\n  const maxIter3 = n <= 20 ? 200 : 100;\n  while (improved3 && iter3 < maxIter3) {\n    improved3 = false;\n    iter3++;\n    for (let i"
+        }
+      ],
+      "api": "openai-completions",
+      "provider": "ollama",
+      "model": "qwen38-27b-q8-coding",
+      "usage": {
+        "input": 1495,
+        "output": 1536,
+        "cacheRead": 6117,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 9148,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      "stopReason": "length",
+      "timestamp": 1792083652104,
+      "responseId": "chatcmpl-21",
+      "rawStopReason": "length"
+    }
+  ],
+  "prompt": "Improve this current best candidate. Development score (mean makespan/baseline, lower better): 0.9336991780012865.\nCurrent code:\nfunction solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  // Initial heuristic: Johnson-like for 2 machines, Palmer for more\n  let best;\n  if (m === 2) {\n    // Johnson's rule: partition into A (times[i][0] < times[i][1]) and B\n    const A = [];\n    const B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    best = A.concat(B);\n  } else {\n    // Palmer's heuristic: sort by sum(first half) - sum(second half)\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    best = Array.from({ length: n }, (_, i) => i);\n    best.sort((a, b) => scores[a] - scores[b] || a - b);\n  }\n\n  let bestMs = makespan(best);\n\n  // Local search with pairwise swaps\n  const maxIter = n <= 20 ? 300 : 150;\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n        } else {\n          swap(best, i, j);\n        }\n      }\n    }\n  }\n\n  return best;\n}\nFactual development ledger:\n[{\"id\":\"r2-warm-1\",\"valid\":false,\"error\":\"Unexpected identifier 'need'\",\"failedCase\":0,\"completed\":0,\"accepted\":false},{\"id\":\"r2-warm-2\",\"valid\":true,\"score\":0.9336991780012865,\"cases\":[{\"makespan\":1105,\"baseline\":1224},{\"makespan\":1241,\"baseline\":1369},{\"makespan\":4974,\"baseline\":5245},{\"makespan\":2025,\"baseline\":2420},{\"makespan\":1725,\"baseline\":1791},{\"makespan\":3731,\"baseline\":3859},{\"makespan\":1705,\"baseline\":1847},{\"makespan\":1806,\"baseline\":1928},{\"makespan\":5708,\"baseline\":5841},{\"makespan\":2236,\"baseline\":2422},{\"makespan\":1296,\"baseline\":1340},{\"makespan\":4018,\"baseline\":4218}],\"accepted\":true},{\"id\":\"r2-continuation-b1-1\",\"valid\":true,\"score\":0.9354956959286082,\"cases\":[{\"makespan\":1105,\"baseline\":1224},{\"makespan\":1255,\"baseline\":1369},{\"makespan\":4955,\"baseline\":5245},{\"makespan\":2025,\"baseline\":2420},{\"makespan\":1742,\"baseline\":1791},{\"makespan\":3731,\"baseline\":3859},{\"makespan\":1705,\"baseline\":1847},{\"makespan\":1806,\"baseline\":1928},{\"makespan\":5708,\"baseline\":5841},{\"makespan\":2242,\"baseline\":2422},{\"makespan\":1300,\"baseline\":1340},{\"makespan\":4018,\"baseline\":4218}],\"accepted\":false},{\"id\":\"r2-continuation-b1-2\",\"valid\":true,\"score\":0.9354956959286082,\"cases\":[{\"makespan\":1105,\"baseline\":1224},{\"makespan\":1255,\"baseline\":1369},{\"makespan\":4955,\"baseline\":5245},{\"makespan\":2025,\"baseline\":2420},{\"makespan\":1742,\"baseline\":1791},{\"makespan\":3731,\"baseline\":3859},{\"makespan\":1705,\"baseline\":1847},{\"makespan\":1806,\"baseline\":1928},{\"makespan\":5708,\"baseline\":5841},{\"makespan\":2242,\"baseline\":2422},{\"makespan\":1300,\"baseline\":1340},{\"makespan\":4018,\"baseline\":4218}],\"accepted\":false},{\"id\":\"r2-continuation-b1-3\",\"valid\":false,\"error\":\"Unexpected identifier 'JSON'\",\"failedCase\":0,\"completed\":0,\"accepted\":false}]\nPropose one complete improved function. Evaluation covers independent instances; optimise generally."
+}

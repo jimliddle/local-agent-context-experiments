@@ -1,0 +1,75 @@
+{
+  "id": "r1-flush-b1-3",
+  "result": {
+    "valid": true,
+    "score": 0.9126227146227303,
+    "cases": [
+      {
+        "makespan": 964,
+        "baseline": 1088
+      },
+      {
+        "makespan": 1448,
+        "baseline": 1528
+      },
+      {
+        "makespan": 6066,
+        "baseline": 6403
+      },
+      {
+        "makespan": 2156,
+        "baseline": 2357
+      },
+      {
+        "makespan": 2215,
+        "baseline": 2353
+      },
+      {
+        "makespan": 3597,
+        "baseline": 3631
+      },
+      {
+        "makespan": 1407,
+        "baseline": 1909
+      },
+      {
+        "makespan": 1602,
+        "baseline": 1750
+      },
+      {
+        "makespan": 6422,
+        "baseline": 6604
+      },
+      {
+        "makespan": 2119,
+        "baseline": 2575
+      },
+      {
+        "makespan": 1078,
+        "baseline": 1132
+      },
+      {
+        "makespan": 3083,
+        "baseline": 3338
+      }
+    ]
+  },
+  "accepted": false,
+  "elapsedSeconds": 96.214,
+  "usage": {
+    "input": 2132,
+    "output": 1519,
+    "cacheRead": 4412,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 8063,
+    "cost": {
+      "input": 0,
+      "output": 0,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0
+    }
+  },
+  "stopReason": "stop"
+}

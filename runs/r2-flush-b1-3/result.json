@@ -1,0 +1,27 @@
+{
+  "id": "r2-flush-b1-3",
+  "result": {
+    "valid": false,
+    "error": "Cannot read properties of undefined (reading '0')",
+    "failedCase": 0,
+    "completed": 0
+  },
+  "accepted": false,
+  "elapsedSeconds": 78.26,
+  "usage": {
+    "input": 1311,
+    "output": 1271,
+    "cacheRead": 4645,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 7227,
+    "cost": {
+      "input": 0,
+      "output": 0,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0
+    }
+  },
+  "stopReason": "stop"
+}

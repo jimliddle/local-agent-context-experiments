@@ -1,0 +1,15 @@
+Local agent context experiments
+
+The experimental design was prompted by:
+Fork-and-Flush: Escaping Idea Basins in Autoresearch Agents
+https://arxiv.org/abs/2610.07447
+
+This is an independent pilot, not an official implementation or replication of
+the paper. No endorsement by its authors is implied.
+
+The inference runner depends on @earendil-works/pi-coding-agent 0.84.2.
+That package is distributed separately under its own licence and notices.
+Its source is not included here. No model weights are included.
+
+The runs directory contains unedited model-generated experiment outputs,
+including invalid programs. They are evidence, not vetted library code.

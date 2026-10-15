@@ -1,0 +1,47 @@
+{
+  "system": "You optimise a deterministic JavaScript scheduling function. Reply ONLY with the complete function solve(times), optionally in a javascript code fence. No explanations or tools. Fit the complete program in 1536 output tokens.\ntimes[job][machine] contains positive integer processing times. All jobs visit machines in order; each machine handles one job at a time. All machines use the same job permutation. Minimise final completion time (makespan). Return every job index exactly once. Never modify evaluation code or hardcode instances. Function must handle arbitrary 18-40 jobs and 4-7 machines, deterministic, under 500ms per instance. No imports, filesystem, network, Date, or Math.random. Helpers must be inside solve. Preserve a working candidate when improving it.",
+  "history": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Improve this current best candidate. Development score (mean makespan/baseline, lower better): 1.\nCurrent code:\nfunction solve(times) {\n  return times.map((row, i) => i).sort((a,b) =>\n    times[b].reduce((s,x)=>s+x,0)-times[a].reduce((s,x)=>s+x,0) || a-b);\n}\nFactual development ledger:\n[{\"id\":\"r1-warm-1\",\"valid\":true,\"score\":1,\"cases\":[{\"makespan\":1088,\"baseline\":1088},{\"makespan\":1528,\"baseline\":1528},{\"makespan\":6403,\"baseline\":6403},{\"makespan\":2357,\"baseline\":2357},{\"makespan\":2353,\"baseline\":2353},{\"makespan\":3631,\"baseline\":3631},{\"makespan\":1909,\"baseline\":1909},{\"makespan\":1750,\"baseline\":1750},{\"makespan\":6604,\"baseline\":6604},{\"makespan\":2575,\"baseline\":2575},{\"makespan\":1132,\"baseline\":1132},{\"makespan\":3338,\"baseline\":3338}],\"accepted\":false},{\"id\":\"r1-warm-2\",\"valid\":true,\"score\":1,\"cases\":[{\"makespan\":1088,\"baseline\":1088},{\"makespan\":1528,\"baseline\":1528},{\"makespan\":6403,\"baseline\":6403},{\"makespan\":2357,\"baseline\":2357},{\"makespan\":2353,\"baseline\":2353},{\"makespan\":3631,\"baseline\":3631},{\"makespan\":1909,\"baseline\":1909},{\"makespan\":1750,\"baseline\":1750},{\"makespan\":6604,\"baseline\":6604},{\"makespan\":2575,\"baseline\":2575},{\"makespan\":1132,\"baseline\":1132},{\"makespan\":3338,\"baseline\":3338}],\"accepted\":false}]\nPropose one complete improved function. Evaluation covers independent instances; optimise generally."
+        }
+      ],
+      "timestamp": 1792082827397
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "```javascript\nfunction solve(times) {\n  const n = times.length, m = times[0].length;\n  const jobs = times.map((row, i) => i);\n\n  function makespan(order) {\n    const comp = new Array(m).fill(0);\n    for (const j of order) {\n      for (let k = 0; k < m; k++) {\n        comp[k] = Math.max(comp[k], comp[k - 1]) + times[j][k];\n      }\n    }\n    return comp[m - 1];\n  }\n\n  // Johnson's rule for 2 machines\n  function johnson(a, b) {\n    const idx = times.map((_, i) => i);\n    const left = [], right = [];\n    for (const i of idx) {\n      if (a[i] < b[i]) left.push(i); else right.push(i);\n    }\n    left.sort((x, y) => a[x] - a[y] || x - y);\n    right.sort((x, y) => b[y] - b[b] || x - y);\n    return left.concat(right);\n  }\n\n  // Build initial candidates\n  const candidates = [];\n\n  // Descending total (current)\n  candidates.push(jobs.slice().sort((a, b) =>\n    times[b].reduce((s, x) => s + x, 0) - times[a].reduce((s, x) => s + x, 0) || a - b));\n\n  // Ascending total\n  candidates.push(jobs.slice().sort((a, b) =>\n    times[a].reduce((s, x) => s + x, 0) - times[b].reduce((s, x) => s + x, 0) || a - b));\n\n  // Johnson on first two machines\n  candidates.push(johnson(times.map(r => r[0]), times.map(r => r[1])));\n\n  // Johnson on last two machines (reversed)\n  const last = m - 1;\n  const revTimes = times.map(r => r.slice().reverse());\n  const revIdx = revTimes.map((_, i) => i);\n  const left = [], right = [];\n  for (const i of revIdx) {\n    if (revTimes[i][0] < revTimes[i][1]) left.push(i); else right.push(i);\n  }\n  left.sort((x, y) => revTimes[x][0] - revTimes[y][0] || x - y);\n  right.sort((x, y) => revTimes[y][1] - revTimes[y][1] || x - y);\n  candidates.push(left.concat(right).reverse());\n\n  // Johnson on machine 0 and machine m-1\n  const j0 = times.map(r => r[0]), jL = times.map(r => r[m - 1]);\n  const l2 = [], r2 = [];\n  for (const i of revIdx) {\n    if (j0[i] < jL[i]) l2.push(i); else r2.push(i);\n  }\n  l2.sort((x, y) => j0[x] - j0[y] || x - y);\n  r2.sort((x, y) => jL[y] - jL[y] || x - y);\n  candidates.push(l2.concat(r2));\n\n  // Best first by makespan\n  candidates.sort((a, b) => makespan(a) - makespan(b));\n\n  // Local search: pairwise swaps\n  let best = candidates[0].slice();\n  let bestMs = makespan(best);\n\n  for (let iter = 0; iter < 3; iter++) {\n    let improved = false;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        const trial = best.slice();\n        const tmp = trial[i]; trial[i] = trial[j]; trial[j] = tmp;\n        const ms = makespan(trial);\n        if (ms < bestMs) {\n          best = trial; bestMs = ms; improved = true;\n        }\n      }\n    }\n    if (!improved) break;\n  }\n\n  return best;\n}\n```"
+        }
+      ],
+      "api": "openai-completions",
+      "provider": "ollama",
+      "model": "qwen38-27b-q8-coding",
+      "usage": {
+        "input": 4,
+        "output": 960,
+        "cacheRead": 726,
+        "cacheWrite": 0,
+        "reasoning": 0,
+        "totalTokens": 1690,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      "stopReason": "stop",
+      "timestamp": 1792082827397,
+      "responseId": "chatcmpl-666",
+      "rawStopReason": "stop"
+    }
+  ],
+  "prompt": "Improve this current best candidate. Development score (mean makespan/baseline, lower better): 1.\nCurrent code:\nfunction solve(times) {\n  return times.map((row, i) => i).sort((a,b) =>\n    times[b].reduce((s,x)=>s+x,0)-times[a].reduce((s,x)=>s+x,0) || a-b);\n}\nFactual development ledger:\n[{\"id\":\"r1-warm-1\",\"valid\":true,\"score\":1,\"cases\":[{\"makespan\":1088,\"baseline\":1088},{\"makespan\":1528,\"baseline\":1528},{\"makespan\":6403,\"baseline\":6403},{\"makespan\":2357,\"baseline\":2357},{\"makespan\":2353,\"baseline\":2353},{\"makespan\":3631,\"baseline\":3631},{\"makespan\":1909,\"baseline\":1909},{\"makespan\":1750,\"baseline\":1750},{\"makespan\":6604,\"baseline\":6604},{\"makespan\":2575,\"baseline\":2575},{\"makespan\":1132,\"baseline\":1132},{\"makespan\":3338,\"baseline\":3338}],\"accepted\":false},{\"id\":\"r1-warm-2\",\"valid\":true,\"score\":1,\"cases\":[{\"makespan\":1088,\"baseline\":1088},{\"makespan\":1528,\"baseline\":1528},{\"makespan\":6403,\"baseline\":6403},{\"makespan\":2357,\"baseline\":2357},{\"makespan\":2353,\"baseline\":2353},{\"makespan\":3631,\"baseline\":3631},{\"makespan\":1909,\"baseline\":1909},{\"makespan\":1750,\"baseline\":1750},{\"makespan\":6604,\"baseline\":6604},{\"makespan\":2575,\"baseline\":2575},{\"makespan\":1132,\"baseline\":1132},{\"makespan\":3338,\"baseline\":3338}],\"accepted\":false},{\"id\":\"r1-fork-b2-1\",\"valid\":true,\"score\":1,\"cases\":[{\"makespan\":1088,\"baseline\":1088},{\"makespan\":1528,\"baseline\":1528},{\"makespan\":6403,\"baseline\":6403},{\"makespan\":2357,\"baseline\":2357},{\"makespan\":2353,\"baseline\":2353},{\"makespan\":3631,\"baseline\":3631},{\"makespan\":1909,\"baseline\":1909},{\"makespan\":1750,\"baseline\":1750},{\"makespan\":6604,\"baseline\":6604},{\"makespan\":2575,\"baseline\":2575},{\"makespan\":1132,\"baseline\":1132},{\"makespan\":3338,\"baseline\":3338}],\"accepted\":false}]\nPropose one complete improved function. Evaluation covers independent instances; optimise generally."
+}

@@ -1,0 +1,27 @@
+{
+  "id": "r1-fork-b1-2",
+  "result": {
+    "valid": false,
+    "error": "Not a permutation of every job",
+    "failedCase": 0,
+    "completed": 0
+  },
+  "accepted": false,
+  "elapsedSeconds": 63.492,
+  "usage": {
+    "input": 1511,
+    "output": 1034,
+    "cacheRead": 1532,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 4077,
+    "cost": {
+      "input": 0,
+      "output": 0,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0
+    }
+  },
+  "stopReason": "stop"
+}

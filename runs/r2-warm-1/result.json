@@ -1,0 +1,27 @@
+{
+  "id": "r2-warm-1",
+  "result": {
+    "valid": false,
+    "error": "Unexpected identifier 'need'",
+    "failedCase": 0,
+    "completed": 0
+  },
+  "accepted": false,
+  "elapsedSeconds": 39.952,
+  "usage": {
+    "input": 103,
+    "output": 669,
+    "cacheRead": 218,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 990,
+    "cost": {
+      "input": 0,
+      "output": 0,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0
+    }
+  },
+  "stopReason": "stop"
+}

@@ -1,0 +1,9 @@
+node_modules/
+outputs/
+*.local.json
+*auth*.json
+*model-store*.json
+.env
+.env.*
+.DS_Store
+*.log

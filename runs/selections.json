@@ -1,0 +1,3542 @@
+[
+  {
+    "repeat": 1,
+    "seed": 1701,
+    "warm": {
+      "code": "function solve(times) {\n  return times.map((row, i) => i).sort((a,b) =>\n    times[b].reduce((s,x)=>s+x,0)-times[a].reduce((s,x)=>s+x,0) || a-b);\n}",
+      "score": 1,
+      "ledger": [
+        {
+          "id": "r1-warm-1",
+          "valid": true,
+          "score": 1,
+          "cases": [
+            {
+              "makespan": 1088,
+              "baseline": 1088
+            },
+            {
+              "makespan": 1528,
+              "baseline": 1528
+            },
+            {
+              "makespan": 6403,
+              "baseline": 6403
+            },
+            {
+              "makespan": 2357,
+              "baseline": 2357
+            },
+            {
+              "makespan": 2353,
+              "baseline": 2353
+            },
+            {
+              "makespan": 3631,
+              "baseline": 3631
+            },
+            {
+              "makespan": 1909,
+              "baseline": 1909
+            },
+            {
+              "makespan": 1750,
+              "baseline": 1750
+            },
+            {
+              "makespan": 6604,
+              "baseline": 6604
+            },
+            {
+              "makespan": 2575,
+              "baseline": 2575
+            },
+            {
+              "makespan": 1132,
+              "baseline": 1132
+            },
+            {
+              "makespan": 3338,
+              "baseline": 3338
+            }
+          ],
+          "accepted": false
+        },
+        {
+          "id": "r1-warm-2",
+          "valid": true,
+          "score": 1,
+          "cases": [
+            {
+              "makespan": 1088,
+              "baseline": 1088
+            },
+            {
+              "makespan": 1528,
+              "baseline": 1528
+            },
+            {
+              "makespan": 6403,
+              "baseline": 6403
+            },
+            {
+              "makespan": 2357,
+              "baseline": 2357
+            },
+            {
+              "makespan": 2353,
+              "baseline": 2353
+            },
+            {
+              "makespan": 3631,
+              "baseline": 3631
+            },
+            {
+              "makespan": 1909,
+              "baseline": 1909
+            },
+            {
+              "makespan": 1750,
+              "baseline": 1750
+            },
+            {
+              "makespan": 6604,
+              "baseline": 6604
+            },
+            {
+              "makespan": 2575,
+              "baseline": 2575
+            },
+            {
+              "makespan": 1132,
+              "baseline": 1132
+            },
+            {
+              "makespan": 3338,
+              "baseline": 3338
+            }
+          ],
+          "accepted": false
+        }
+      ],
+      "selected": "baseline"
+    },
+    "arms": {
+      "continuation": {
+        "selected": {
+          "code": "function solve(times) {\n  return times.map((row, i) => i).sort((a,b) =>\n    times[b].reduce((s,x)=>s+x,0)-times[a].reduce((s,x)=>s+x,0) || a-b);\n}",
+          "score": 1,
+          "ledger": [
+            {
+              "id": "r1-warm-1",
+              "valid": true,
+              "score": 1,
+              "cases": [
+                {
+                  "makespan": 1088,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1528,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6403,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2357,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2353,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3631,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1909,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1750,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6604,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2575,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1132,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3338,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r1-warm-2",
+              "valid": true,
+              "score": 1,
+              "cases": [
+                {
+                  "makespan": 1088,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1528,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6403,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2357,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2353,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3631,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1909,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1750,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6604,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2575,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1132,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3338,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r1-continuation-b1-1",
+              "valid": true,
+              "score": 1,
+              "cases": [
+                {
+                  "makespan": 1088,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1528,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6403,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2357,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2353,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3631,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1909,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1750,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6604,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2575,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1132,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3338,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r1-continuation-b1-2",
+              "valid": true,
+              "score": 1,
+              "cases": [
+                {
+                  "makespan": 1088,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1528,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6403,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2357,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2353,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3631,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1909,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1750,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6604,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2575,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1132,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3338,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r1-continuation-b1-3",
+              "valid": true,
+              "score": 1,
+              "cases": [
+                {
+                  "makespan": 1088,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1528,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6403,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2357,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2353,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3631,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1909,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1750,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6604,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2575,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1132,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3338,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r1-continuation-b1-4",
+              "valid": true,
+              "score": 1,
+              "cases": [
+                {
+                  "makespan": 1088,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1528,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6403,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2357,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2353,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3631,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1909,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1750,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6604,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2575,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1132,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3338,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": false
+            }
+          ],
+          "selected": "baseline"
+        },
+        "branches": [
+          {
+            "code": "function solve(times) {\n  return times.map((row, i) => i).sort((a,b) =>\n    times[b].reduce((s,x)=>s+x,0)-times[a].reduce((s,x)=>s+x,0) || a-b);\n}",
+            "score": 1,
+            "ledger": [
+              {
+                "id": "r1-warm-1",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-warm-2",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-continuation-b1-1",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-continuation-b1-2",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-continuation-b1-3",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-continuation-b1-4",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              }
+            ],
+            "selected": "baseline"
+          }
+        ]
+      },
+      "flush": {
+        "selected": {
+          "code": "function solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(perm) {\n    const finish = new Array(m).fill(0);\n    for (let j = 0; j < n; j++) {\n      const job = perm[j];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = t > finish[k] ? t : finish[k];\n        t += times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function jk(perm) {\n    let a = perm[0];\n    for (let i = 1; i < n; i++) {\n      const b = perm[i];\n      if (times[b][m - 1] < times[a][m - 1]) a = b;\n    }\n    let first = [a];\n    const rest = perm.filter(x => x !== a);\n    while (rest.length) {\n      let best = null, bestVal = Infinity, bestIdx = 0;\n      const last = first[first.length - 1];\n      for (let i = 0; i < rest.length; i++) {\n        const cand = rest[i];\n        const v1 = times[last][0];\n        const v2 = times[cand][m - 1];\n        const val = v1 > v2 ? v1 : v2;\n        if (val < bestVal) {\n          bestVal = val; best = cand; bestIdx = i;\n        }\n      }\n      first.push(best);\n      rest.splice(bestIdx, 1);\n    }\n    return first;\n  }\n\n  function spt() {\n    return times.map((row, i) => i).sort((a, b) =>\n      times[b].reduce((s, x) => s + x, 0) - times[a].reduce((s, x) => s + x, 0) || a - b);\n  }\n\n  function lpt() {\n    return times.map((row, i) => i).sort((a, b) =>\n      times[a].reduce((s, x) => s + x, 0) - times[b].reduce((s, x) => s + x, 0) || a - b);\n  }\n\n  function insertImprove(perm) {\n    const p = perm.slice();\n    let cur = makespan(p);\n    let improved = true;\n    while (improved) {\n      improved = false;\n      for (let i = 0; i < n; i++) {\n        const job = p[i];\n        for (let j = 0; j < n; j++) {\n          if (j === i) continue;\n          const trial = p.slice();\n          trial.splice(i, 1);\n          trial.splice(j, 0, job);\n          const ms = makespan(trial);\n          if (ms < cur) {\n            p.length = 0;\n            for (let k = 0; k < n; k++) p.push(trial[k]);\n            cur = ms;\n            improved = true;\n            break;\n          }\n        }\n        if (improved) break;\n      }\n    }\n    return p;\n  }\n\n  function swapImprove(perm) {\n    const p = perm.slice();\n    let cur = makespan(p);\n    let improved = true;\n    while (improved) {\n      improved = false;\n      for (let i = 0; i < n - 1; i++) {\n        for (let j = i + 1; j < n; j++) {\n          const trial = p.slice();\n          const tmp = trial[i]; trial[i] = trial[j]; trial[j] = tmp;\n          const ms = makespan(trial);\n          if (ms < cur) {\n            p.length = 0;\n            for (let k = 0; k < n; k++) p.push(trial[k]);\n            cur = ms;\n            improved = true;\n            break;\n          }\n        }\n        if (improved) break;\n      }\n    }\n    return p;\n  }\n\n  let best = jk(spt());\n  let bestMs = makespan(best);\n\n  const cands = [spt(), lpt(), jk(lpt())];\n  for (const c of cands) {\n    const ms = makespan(c);\n    if (ms < bestMs) { bestMs = ms; best = c.slice(); }\n  }\n\n  let improved = insertImprove(best);\n  let ms2 = makespan(improved);\n  if (ms2 < bestMs) { bestMs = ms2; best = improved; }\n\n  improved = swapImprove(best);\n  ms2 = makespan(improved);\n  if (ms2 < bestMs) { bestMs = ms2; best = improved; }\n\n  improved = insertImprove(best);\n  ms2 = makespan(improved);\n  if (ms2 < bestMs) { bestMs = ms2; best = improved; }\n\n  return best;\n}",
+          "score": 0.9126227146227303,
+          "ledger": [
+            {
+              "id": "r1-warm-1",
+              "valid": true,
+              "score": 1,
+              "cases": [
+                {
+                  "makespan": 1088,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1528,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6403,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2357,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2353,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3631,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1909,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1750,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6604,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2575,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1132,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3338,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r1-warm-2",
+              "valid": true,
+              "score": 1,
+              "cases": [
+                {
+                  "makespan": 1088,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1528,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6403,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2357,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2353,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3631,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1909,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1750,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6604,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2575,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1132,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3338,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r1-flush-b1-1",
+              "valid": true,
+              "score": 0.9131465490910381,
+              "cases": [
+                {
+                  "makespan": 964,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1448,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6066,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2156,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2215,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3597,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1419,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1602,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6422,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2119,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1078,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3083,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": true
+            },
+            {
+              "id": "r1-flush-b1-2",
+              "valid": true,
+              "score": 0.9126227146227303,
+              "cases": [
+                {
+                  "makespan": 964,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1448,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6066,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2156,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2215,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3597,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1407,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1602,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6422,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2119,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1078,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3083,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": true
+            },
+            {
+              "id": "r1-flush-b1-3",
+              "valid": true,
+              "score": 0.9126227146227303,
+              "cases": [
+                {
+                  "makespan": 964,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1448,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6066,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2156,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2215,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3597,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1407,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1602,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6422,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2119,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1078,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3083,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r1-flush-b1-4",
+              "valid": true,
+              "score": 0.9126227146227303,
+              "cases": [
+                {
+                  "makespan": 964,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1448,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6066,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2156,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2215,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3597,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1407,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1602,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6422,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2119,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1078,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3083,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": false
+            }
+          ],
+          "selected": "r1-flush-b1-2"
+        },
+        "branches": [
+          {
+            "code": "function solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(perm) {\n    const finish = new Array(m).fill(0);\n    for (let j = 0; j < n; j++) {\n      const job = perm[j];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = t > finish[k] ? t : finish[k];\n        t += times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function jk(perm) {\n    let a = perm[0];\n    for (let i = 1; i < n; i++) {\n      const b = perm[i];\n      if (times[b][m - 1] < times[a][m - 1]) a = b;\n    }\n    let first = [a];\n    const rest = perm.filter(x => x !== a);\n    while (rest.length) {\n      let best = null, bestVal = Infinity, bestIdx = 0;\n      const last = first[first.length - 1];\n      for (let i = 0; i < rest.length; i++) {\n        const cand = rest[i];\n        const v1 = times[last][0];\n        const v2 = times[cand][m - 1];\n        const val = v1 > v2 ? v1 : v2;\n        if (val < bestVal) {\n          bestVal = val; best = cand; bestIdx = i;\n        }\n      }\n      first.push(best);\n      rest.splice(bestIdx, 1);\n    }\n    return first;\n  }\n\n  function spt() {\n    return times.map((row, i) => i).sort((a, b) =>\n      times[b].reduce((s, x) => s + x, 0) - times[a].reduce((s, x) => s + x, 0) || a - b);\n  }\n\n  function lpt() {\n    return times.map((row, i) => i).sort((a, b) =>\n      times[a].reduce((s, x) => s + x, 0) - times[b].reduce((s, x) => s + x, 0) || a - b);\n  }\n\n  function insertImprove(perm) {\n    const p = perm.slice();\n    let cur = makespan(p);\n    let improved = true;\n    while (improved) {\n      improved = false;\n      for (let i = 0; i < n; i++) {\n        const job = p[i];\n        for (let j = 0; j < n; j++) {\n          if (j === i) continue;\n          const trial = p.slice();\n          trial.splice(i, 1);\n          trial.splice(j, 0, job);\n          const ms = makespan(trial);\n          if (ms < cur) {\n            p.length = 0;\n            for (let k = 0; k < n; k++) p.push(trial[k]);\n            cur = ms;\n            improved = true;\n            break;\n          }\n        }\n        if (improved) break;\n      }\n    }\n    return p;\n  }\n\n  function swapImprove(perm) {\n    const p = perm.slice();\n    let cur = makespan(p);\n    let improved = true;\n    while (improved) {\n      improved = false;\n      for (let i = 0; i < n - 1; i++) {\n        for (let j = i + 1; j < n; j++) {\n          const trial = p.slice();\n          const tmp = trial[i]; trial[i] = trial[j]; trial[j] = tmp;\n          const ms = makespan(trial);\n          if (ms < cur) {\n            p.length = 0;\n            for (let k = 0; k < n; k++) p.push(trial[k]);\n            cur = ms;\n            improved = true;\n            break;\n          }\n        }\n        if (improved) break;\n      }\n    }\n    return p;\n  }\n\n  let best = jk(spt());\n  let bestMs = makespan(best);\n\n  const cands = [spt(), lpt(), jk(lpt())];\n  for (const c of cands) {\n    const ms = makespan(c);\n    if (ms < bestMs) { bestMs = ms; best = c.slice(); }\n  }\n\n  let improved = insertImprove(best);\n  let ms2 = makespan(improved);\n  if (ms2 < bestMs) { bestMs = ms2; best = improved; }\n\n  improved = swapImprove(best);\n  ms2 = makespan(improved);\n  if (ms2 < bestMs) { bestMs = ms2; best = improved; }\n\n  improved = insertImprove(best);\n  ms2 = makespan(improved);\n  if (ms2 < bestMs) { bestMs = ms2; best = improved; }\n\n  return best;\n}",
+            "score": 0.9126227146227303,
+            "ledger": [
+              {
+                "id": "r1-warm-1",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-warm-2",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-flush-b1-1",
+                "valid": true,
+                "score": 0.9131465490910381,
+                "cases": [
+                  {
+                    "makespan": 964,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1448,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6066,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2156,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2215,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3597,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1419,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1602,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6422,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2119,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1078,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3083,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": true
+              },
+              {
+                "id": "r1-flush-b1-2",
+                "valid": true,
+                "score": 0.9126227146227303,
+                "cases": [
+                  {
+                    "makespan": 964,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1448,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6066,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2156,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2215,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3597,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1407,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1602,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6422,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2119,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1078,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3083,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": true
+              },
+              {
+                "id": "r1-flush-b1-3",
+                "valid": true,
+                "score": 0.9126227146227303,
+                "cases": [
+                  {
+                    "makespan": 964,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1448,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6066,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2156,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2215,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3597,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1407,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1602,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6422,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2119,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1078,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3083,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-flush-b1-4",
+                "valid": true,
+                "score": 0.9126227146227303,
+                "cases": [
+                  {
+                    "makespan": 964,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1448,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6066,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2156,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2215,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3597,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1407,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1602,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6422,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2119,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1078,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3083,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              }
+            ],
+            "selected": "r1-flush-b1-2"
+          }
+        ]
+      },
+      "fork": {
+        "selected": {
+          "code": "function solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const c = new Array(m).fill(0);\n    for (const j of order) {\n      const row = times[j];\n      for (let i = 0; i < m; i++) {\n        c[i] = Math.max(c[i], c[i - 1] || 0) + row[i];\n      }\n    }\n    return c[m - 1];\n  }\n\n  function pairwiseCost(a, b) {\n    // cost of having a before b\n    let ca = 0, cb = 0;\n    for (let i = 0; i < m; i++) {\n      const ta = times[a][i], tb = times[b][i];\n      ca = Math.max(ca, (i > 0 ? ca : 0)) + ta;\n      cb = Math.max(cb, (i > 0 ? cb : 0)) + tb;\n    }\n    return ca;\n  }\n\n  // Johnson's rule for 2 machines\n  function johnson2(first, second) {\n    const arr = [];\n    for (let i = 0; i < n; i++) arr.push(i);\n    arr.sort((a, b) => {\n      const ma = Math.min(times[a][first], times[a][second]);\n      const mb = Math.min(times[b][first], times[b][second]);\n      return ma - mb || a - b;\n    });\n    return arr;\n  }\n\n  // Build initial order with Johnson on first two machines\n  let order = johnson2(0, 1);\n\n  // Improve with pairwise swaps\n  let best = makespan(order);\n  let improved = true;\n  while (improved) {\n    improved = false;\n    for (let i = 0; i < n - 1; i++) {\n      for (let j = i + 1; j < n; j++) {\n        const tmp = order[i];\n        order[i] = order[j];\n        order[j] = tmp;\n        const ms = makespan(order);\n        if (ms < best) {\n          best = ms;\n          improved = true;\n        } else {\n          order[j] = order[i];\n          order[i] = tmp;\n        }\n      }\n    }\n  }\n\n  // 2-opt style: try reversing segments\n  improved = true;\n  while (improved) {\n    improved = false;\n    for (let i = 0; i < n - 1; i++) {\n      for (let j = i + 2; j < n; j++) {\n        for (let k = i; k <= (i + j) / 2; k++) {\n          const l = i + j - k;\n          const tmp = order[k];\n          order[k] = order[l];\n          order[l] = tmp;\n        }\n        const ms = makespan(order);\n        if (ms < best) {\n          best = ms;\n          improved = true;\n        } else {\n          for (let k = i; k <= (i + j) / 2; k++) {\n            const l = i + j - k;\n            const tmp = order[k];\n            order[k] = order[l];\n            order[l] = tmp;\n          }\n        }\n      }\n    }\n  }\n\n  return order;\n}",
+          "score": 0.9264999964618831,
+          "ledger": [
+            {
+              "id": "r1-warm-1",
+              "valid": true,
+              "score": 1,
+              "cases": [
+                {
+                  "makespan": 1088,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1528,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6403,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2357,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2353,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3631,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1909,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1750,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6604,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2575,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1132,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3338,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r1-warm-2",
+              "valid": true,
+              "score": 1,
+              "cases": [
+                {
+                  "makespan": 1088,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1528,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6403,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2357,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2353,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3631,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1909,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1750,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6604,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2575,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1132,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3338,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r1-fork-b1-1",
+              "valid": true,
+              "score": 0.9264999964618831,
+              "cases": [
+                {
+                  "makespan": 972,
+                  "baseline": 1088
+                },
+                {
+                  "makespan": 1484,
+                  "baseline": 1528
+                },
+                {
+                  "makespan": 6066,
+                  "baseline": 6403
+                },
+                {
+                  "makespan": 2137,
+                  "baseline": 2357
+                },
+                {
+                  "makespan": 2250,
+                  "baseline": 2353
+                },
+                {
+                  "makespan": 3630,
+                  "baseline": 3631
+                },
+                {
+                  "makespan": 1533,
+                  "baseline": 1909
+                },
+                {
+                  "makespan": 1658,
+                  "baseline": 1750
+                },
+                {
+                  "makespan": 6422,
+                  "baseline": 6604
+                },
+                {
+                  "makespan": 2184,
+                  "baseline": 2575
+                },
+                {
+                  "makespan": 1074,
+                  "baseline": 1132
+                },
+                {
+                  "makespan": 3083,
+                  "baseline": 3338
+                }
+              ],
+              "accepted": true
+            },
+            {
+              "id": "r1-fork-b1-2",
+              "valid": false,
+              "error": "Not a permutation of every job",
+              "failedCase": 0,
+              "completed": 0,
+              "accepted": false
+            }
+          ],
+          "selected": "r1-fork-b1-1"
+        },
+        "branches": [
+          {
+            "code": "function solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const c = new Array(m).fill(0);\n    for (const j of order) {\n      const row = times[j];\n      for (let i = 0; i < m; i++) {\n        c[i] = Math.max(c[i], c[i - 1] || 0) + row[i];\n      }\n    }\n    return c[m - 1];\n  }\n\n  function pairwiseCost(a, b) {\n    // cost of having a before b\n    let ca = 0, cb = 0;\n    for (let i = 0; i < m; i++) {\n      const ta = times[a][i], tb = times[b][i];\n      ca = Math.max(ca, (i > 0 ? ca : 0)) + ta;\n      cb = Math.max(cb, (i > 0 ? cb : 0)) + tb;\n    }\n    return ca;\n  }\n\n  // Johnson's rule for 2 machines\n  function johnson2(first, second) {\n    const arr = [];\n    for (let i = 0; i < n; i++) arr.push(i);\n    arr.sort((a, b) => {\n      const ma = Math.min(times[a][first], times[a][second]);\n      const mb = Math.min(times[b][first], times[b][second]);\n      return ma - mb || a - b;\n    });\n    return arr;\n  }\n\n  // Build initial order with Johnson on first two machines\n  let order = johnson2(0, 1);\n\n  // Improve with pairwise swaps\n  let best = makespan(order);\n  let improved = true;\n  while (improved) {\n    improved = false;\n    for (let i = 0; i < n - 1; i++) {\n      for (let j = i + 1; j < n; j++) {\n        const tmp = order[i];\n        order[i] = order[j];\n        order[j] = tmp;\n        const ms = makespan(order);\n        if (ms < best) {\n          best = ms;\n          improved = true;\n        } else {\n          order[j] = order[i];\n          order[i] = tmp;\n        }\n      }\n    }\n  }\n\n  // 2-opt style: try reversing segments\n  improved = true;\n  while (improved) {\n    improved = false;\n    for (let i = 0; i < n - 1; i++) {\n      for (let j = i + 2; j < n; j++) {\n        for (let k = i; k <= (i + j) / 2; k++) {\n          const l = i + j - k;\n          const tmp = order[k];\n          order[k] = order[l];\n          order[l] = tmp;\n        }\n        const ms = makespan(order);\n        if (ms < best) {\n          best = ms;\n          improved = true;\n        } else {\n          for (let k = i; k <= (i + j) / 2; k++) {\n            const l = i + j - k;\n            const tmp = order[k];\n            order[k] = order[l];\n            order[l] = tmp;\n          }\n        }\n      }\n    }\n  }\n\n  return order;\n}",
+            "score": 0.9264999964618831,
+            "ledger": [
+              {
+                "id": "r1-warm-1",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-warm-2",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-fork-b1-1",
+                "valid": true,
+                "score": 0.9264999964618831,
+                "cases": [
+                  {
+                    "makespan": 972,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1484,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6066,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2137,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2250,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3630,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1533,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1658,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6422,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2184,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1074,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3083,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": true
+              },
+              {
+                "id": "r1-fork-b1-2",
+                "valid": false,
+                "error": "Not a permutation of every job",
+                "failedCase": 0,
+                "completed": 0,
+                "accepted": false
+              }
+            ],
+            "selected": "r1-fork-b1-1"
+          },
+          {
+            "code": "function solve(times) {\n  return times.map((row, i) => i).sort((a,b) =>\n    times[b].reduce((s,x)=>s+x,0)-times[a].reduce((s,x)=>s+x,0) || a-b);\n}",
+            "score": 1,
+            "ledger": [
+              {
+                "id": "r1-warm-1",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-warm-2",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-fork-b2-1",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r1-fork-b2-2",
+                "valid": true,
+                "score": 1,
+                "cases": [
+                  {
+                    "makespan": 1088,
+                    "baseline": 1088
+                  },
+                  {
+                    "makespan": 1528,
+                    "baseline": 1528
+                  },
+                  {
+                    "makespan": 6403,
+                    "baseline": 6403
+                  },
+                  {
+                    "makespan": 2357,
+                    "baseline": 2357
+                  },
+                  {
+                    "makespan": 2353,
+                    "baseline": 2353
+                  },
+                  {
+                    "makespan": 3631,
+                    "baseline": 3631
+                  },
+                  {
+                    "makespan": 1909,
+                    "baseline": 1909
+                  },
+                  {
+                    "makespan": 1750,
+                    "baseline": 1750
+                  },
+                  {
+                    "makespan": 6604,
+                    "baseline": 6604
+                  },
+                  {
+                    "makespan": 2575,
+                    "baseline": 2575
+                  },
+                  {
+                    "makespan": 1132,
+                    "baseline": 1132
+                  },
+                  {
+                    "makespan": 3338,
+                    "baseline": 3338
+                  }
+                ],
+                "accepted": false
+              }
+            ],
+            "selected": "baseline"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "repeat": 2,
+    "seed": 1801,
+    "warm": {
+      "code": "function solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  // Initial heuristic: Johnson-like for 2 machines, Palmer for more\n  let best;\n  if (m === 2) {\n    // Johnson's rule: partition into A (times[i][0] < times[i][1]) and B\n    const A = [];\n    const B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    best = A.concat(B);\n  } else {\n    // Palmer's heuristic: sort by sum(first half) - sum(second half)\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    best = Array.from({ length: n }, (_, i) => i);\n    best.sort((a, b) => scores[a] - scores[b] || a - b);\n  }\n\n  let bestMs = makespan(best);\n\n  // Local search with pairwise swaps\n  const maxIter = n <= 20 ? 300 : 150;\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n        } else {\n          swap(best, i, j);\n        }\n      }\n    }\n  }\n\n  return best;\n}",
+      "score": 0.9336991780012865,
+      "ledger": [
+        {
+          "id": "r2-warm-1",
+          "valid": false,
+          "error": "Unexpected identifier 'need'",
+          "failedCase": 0,
+          "completed": 0,
+          "accepted": false
+        },
+        {
+          "id": "r2-warm-2",
+          "valid": true,
+          "score": 0.9336991780012865,
+          "cases": [
+            {
+              "makespan": 1105,
+              "baseline": 1224
+            },
+            {
+              "makespan": 1241,
+              "baseline": 1369
+            },
+            {
+              "makespan": 4974,
+              "baseline": 5245
+            },
+            {
+              "makespan": 2025,
+              "baseline": 2420
+            },
+            {
+              "makespan": 1725,
+              "baseline": 1791
+            },
+            {
+              "makespan": 3731,
+              "baseline": 3859
+            },
+            {
+              "makespan": 1705,
+              "baseline": 1847
+            },
+            {
+              "makespan": 1806,
+              "baseline": 1928
+            },
+            {
+              "makespan": 5708,
+              "baseline": 5841
+            },
+            {
+              "makespan": 2236,
+              "baseline": 2422
+            },
+            {
+              "makespan": 1296,
+              "baseline": 1340
+            },
+            {
+              "makespan": 4018,
+              "baseline": 4218
+            }
+          ],
+          "accepted": true
+        }
+      ],
+      "selected": "r2-warm-2"
+    },
+    "arms": {
+      "fork": {
+        "selected": {
+          "code": "function solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  function insert(arr, from, to) {\n    const item = arr.splice(from, 1)[0];\n    arr.splice(to, 0, item);\n  }\n\n  // Initial heuristic\n  let best;\n  if (m === 2) {\n    const A = [];\n    const B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    best = A.concat(B);\n  } else {\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    best = Array.from({ length: n }, (_, i) => i);\n    best.sort((a, b) => scores[a] - scores[b] || a - b);\n  }\n\n  let bestMs = makespan(best);\n\n  // Multi-start: try several initial orders, keep best\n  const starts = [best.slice()];\n  \n  // Reverse\n  starts.push(best.slice().reverse());\n  \n  // Sort by total processing time\n  const total = new Array(n);\n  for (let i = 0; i < n; i++) {\n    let s = 0;\n    for (let k = 0; k < m; k++) s += times[i][k];\n    total[i] = s;\n  }\n  const byTotal = Array.from({ length: n }, (_, i) => i);\n  byTotal.sort((a, b) => total[a] - total[b] || a - b);\n  starts.push(byTotal);\n  \n  // Sort by first machine\n  const byFirst = Array.from({ length: n }, (_, i) => i);\n  byFirst.sort((a, b) => times[a][0] - times[b][0] || a - b);\n  starts.push(byFirst);\n  \n  // Sort by last machine desc\n  const byLast = Array.from({ length: n }, (_, i) => i);\n  byLast.sort((a, b) => times[b][m - 1] - times[a][m - 1] || a - b);\n  starts.push(byLast);\n\n  for (const start of starts) {\n    const ms = makespan(start);\n    if (ms < bestMs) {\n      bestMs = ms;\n      best = start;\n    }\n  }\n\n  // Local search: pairwise swaps\n  const maxIter = n <= 22 ? 40 : 15;\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n        } else {\n          swap(best, i, j);\n        }\n      }\n    }\n  }\n\n  // Insertion moves\n  improved = true;\n  let insIter = 0;\n  const maxInsIter = n <= 22 ? 20 : 8;\n  while (improved && insIter < maxInsIter) {\n    improved = false;\n    insIter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = 0; j < n; j++) {\n        if (i === j) continue;\n        insert(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n          i = 0; // restart\n        } else {\n          // move back\n          const item = best.splice(j, 1)[0];\n          best.splice(i, 0, item);\n        }\n      }\n    }\n  }\n\n  return best;\n}",
+          "score": 0.9274796450952421,
+          "ledger": [
+            {
+              "id": "r2-warm-1",
+              "valid": false,
+              "error": "Unexpected identifier 'need'",
+              "failedCase": 0,
+              "completed": 0,
+              "accepted": false
+            },
+            {
+              "id": "r2-warm-2",
+              "valid": true,
+              "score": 0.9336991780012865,
+              "cases": [
+                {
+                  "makespan": 1105,
+                  "baseline": 1224
+                },
+                {
+                  "makespan": 1241,
+                  "baseline": 1369
+                },
+                {
+                  "makespan": 4974,
+                  "baseline": 5245
+                },
+                {
+                  "makespan": 2025,
+                  "baseline": 2420
+                },
+                {
+                  "makespan": 1725,
+                  "baseline": 1791
+                },
+                {
+                  "makespan": 3731,
+                  "baseline": 3859
+                },
+                {
+                  "makespan": 1705,
+                  "baseline": 1847
+                },
+                {
+                  "makespan": 1806,
+                  "baseline": 1928
+                },
+                {
+                  "makespan": 5708,
+                  "baseline": 5841
+                },
+                {
+                  "makespan": 2236,
+                  "baseline": 2422
+                },
+                {
+                  "makespan": 1296,
+                  "baseline": 1340
+                },
+                {
+                  "makespan": 4018,
+                  "baseline": 4218
+                }
+              ],
+              "accepted": true
+            },
+            {
+              "id": "r2-fork-b2-1",
+              "valid": true,
+              "score": 0.9336991780012865,
+              "cases": [
+                {
+                  "makespan": 1105,
+                  "baseline": 1224
+                },
+                {
+                  "makespan": 1241,
+                  "baseline": 1369
+                },
+                {
+                  "makespan": 4974,
+                  "baseline": 5245
+                },
+                {
+                  "makespan": 2025,
+                  "baseline": 2420
+                },
+                {
+                  "makespan": 1725,
+                  "baseline": 1791
+                },
+                {
+                  "makespan": 3731,
+                  "baseline": 3859
+                },
+                {
+                  "makespan": 1705,
+                  "baseline": 1847
+                },
+                {
+                  "makespan": 1806,
+                  "baseline": 1928
+                },
+                {
+                  "makespan": 5708,
+                  "baseline": 5841
+                },
+                {
+                  "makespan": 2236,
+                  "baseline": 2422
+                },
+                {
+                  "makespan": 1296,
+                  "baseline": 1340
+                },
+                {
+                  "makespan": 4018,
+                  "baseline": 4218
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r2-fork-b2-2",
+              "valid": true,
+              "score": 0.9274796450952421,
+              "cases": [
+                {
+                  "makespan": 1105,
+                  "baseline": 1224
+                },
+                {
+                  "makespan": 1248,
+                  "baseline": 1369
+                },
+                {
+                  "makespan": 4921,
+                  "baseline": 5245
+                },
+                {
+                  "makespan": 2025,
+                  "baseline": 2420
+                },
+                {
+                  "makespan": 1697,
+                  "baseline": 1791
+                },
+                {
+                  "makespan": 3731,
+                  "baseline": 3859
+                },
+                {
+                  "makespan": 1622,
+                  "baseline": 1847
+                },
+                {
+                  "makespan": 1801,
+                  "baseline": 1928
+                },
+                {
+                  "makespan": 5708,
+                  "baseline": 5841
+                },
+                {
+                  "makespan": 2242,
+                  "baseline": 2422
+                },
+                {
+                  "makespan": 1284,
+                  "baseline": 1340
+                },
+                {
+                  "makespan": 4018,
+                  "baseline": 4218
+                }
+              ],
+              "accepted": true
+            }
+          ],
+          "selected": "r2-fork-b2-2"
+        },
+        "branches": [
+          {
+            "code": "function solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  function insert(arr, from, to) {\n    const item = arr.splice(from, 1)[0];\n    arr.splice(to, 0, item);\n  }\n\n  // Initial heuristic\n  let best;\n  if (m === 2) {\n    const A = [];\n    const B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    best = A.concat(B);\n  } else {\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    best = Array.from({ length: n }, (_, i) => i);\n    best.sort((a, b) => scores[a] - scores[b] || a - b);\n  }\n\n  let bestMs = makespan(best);\n\n  // Multi-start: try several initial orders, keep best\n  const starts = [best.slice()];\n  \n  // Reverse\n  starts.push(best.slice().reverse());\n  \n  // Sort by total processing time\n  const total = new Array(n);\n  for (let i = 0; i < n; i++) {\n    let s = 0;\n    for (let k = 0; k < m; k++) s += times[i][k];\n    total[i] = s;\n  }\n  const byTotal = Array.from({ length: n }, (_, i) => i);\n  byTotal.sort((a, b) => total[a] - total[b] || a - b);\n  starts.push(byTotal);\n  \n  // Sort by first machine\n  const byFirst = Array.from({ length: n }, (_, i) => i);\n  byFirst.sort((a, b) => times[a][0] - times[b][0] || a - b);\n  starts.push(byFirst);\n  \n  // Sort by last machine desc\n  const byLast = Array.from({ length: n }, (_, i) => i);\n  byLast.sort((a, b) => times[b][m - 1] - times[a][m - 1] || a - b);\n  starts.push(byLast);\n\n  for (const start of starts) {\n    const ms = makespan(start);\n    if (ms < bestMs) {\n      bestMs = ms;\n      best = start;\n    }\n  }\n\n  // Local search: pairwise swaps\n  const maxIter = n <= 22 ? 40 : 15;\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n        } else {\n          swap(best, i, j);\n        }\n      }\n    }\n  }\n\n  // Insertion moves\n  improved = true;\n  let insIter = 0;\n  const maxInsIter = n <= 22 ? 20 : 8;\n  while (improved && insIter < maxInsIter) {\n    improved = false;\n    insIter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = 0; j < n; j++) {\n        if (i === j) continue;\n        insert(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n          i = 0; // restart\n        } else {\n          // move back\n          const item = best.splice(j, 1)[0];\n          best.splice(i, 0, item);\n        }\n      }\n    }\n  }\n\n  return best;\n}",
+            "score": 0.9274796450952421,
+            "ledger": [
+              {
+                "id": "r2-warm-1",
+                "valid": false,
+                "error": "Unexpected identifier 'need'",
+                "failedCase": 0,
+                "completed": 0,
+                "accepted": false
+              },
+              {
+                "id": "r2-warm-2",
+                "valid": true,
+                "score": 0.9336991780012865,
+                "cases": [
+                  {
+                    "makespan": 1105,
+                    "baseline": 1224
+                  },
+                  {
+                    "makespan": 1241,
+                    "baseline": 1369
+                  },
+                  {
+                    "makespan": 4974,
+                    "baseline": 5245
+                  },
+                  {
+                    "makespan": 2025,
+                    "baseline": 2420
+                  },
+                  {
+                    "makespan": 1725,
+                    "baseline": 1791
+                  },
+                  {
+                    "makespan": 3731,
+                    "baseline": 3859
+                  },
+                  {
+                    "makespan": 1705,
+                    "baseline": 1847
+                  },
+                  {
+                    "makespan": 1806,
+                    "baseline": 1928
+                  },
+                  {
+                    "makespan": 5708,
+                    "baseline": 5841
+                  },
+                  {
+                    "makespan": 2236,
+                    "baseline": 2422
+                  },
+                  {
+                    "makespan": 1296,
+                    "baseline": 1340
+                  },
+                  {
+                    "makespan": 4018,
+                    "baseline": 4218
+                  }
+                ],
+                "accepted": true
+              },
+              {
+                "id": "r2-fork-b2-1",
+                "valid": true,
+                "score": 0.9336991780012865,
+                "cases": [
+                  {
+                    "makespan": 1105,
+                    "baseline": 1224
+                  },
+                  {
+                    "makespan": 1241,
+                    "baseline": 1369
+                  },
+                  {
+                    "makespan": 4974,
+                    "baseline": 5245
+                  },
+                  {
+                    "makespan": 2025,
+                    "baseline": 2420
+                  },
+                  {
+                    "makespan": 1725,
+                    "baseline": 1791
+                  },
+                  {
+                    "makespan": 3731,
+                    "baseline": 3859
+                  },
+                  {
+                    "makespan": 1705,
+                    "baseline": 1847
+                  },
+                  {
+                    "makespan": 1806,
+                    "baseline": 1928
+                  },
+                  {
+                    "makespan": 5708,
+                    "baseline": 5841
+                  },
+                  {
+                    "makespan": 2236,
+                    "baseline": 2422
+                  },
+                  {
+                    "makespan": 1296,
+                    "baseline": 1340
+                  },
+                  {
+                    "makespan": 4018,
+                    "baseline": 4218
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r2-fork-b2-2",
+                "valid": true,
+                "score": 0.9274796450952421,
+                "cases": [
+                  {
+                    "makespan": 1105,
+                    "baseline": 1224
+                  },
+                  {
+                    "makespan": 1248,
+                    "baseline": 1369
+                  },
+                  {
+                    "makespan": 4921,
+                    "baseline": 5245
+                  },
+                  {
+                    "makespan": 2025,
+                    "baseline": 2420
+                  },
+                  {
+                    "makespan": 1697,
+                    "baseline": 1791
+                  },
+                  {
+                    "makespan": 3731,
+                    "baseline": 3859
+                  },
+                  {
+                    "makespan": 1622,
+                    "baseline": 1847
+                  },
+                  {
+                    "makespan": 1801,
+                    "baseline": 1928
+                  },
+                  {
+                    "makespan": 5708,
+                    "baseline": 5841
+                  },
+                  {
+                    "makespan": 2242,
+                    "baseline": 2422
+                  },
+                  {
+                    "makespan": 1284,
+                    "baseline": 1340
+                  },
+                  {
+                    "makespan": 4018,
+                    "baseline": 4218
+                  }
+                ],
+                "accepted": true
+              }
+            ],
+            "selected": "r2-fork-b2-2"
+          },
+          {
+            "code": "function solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  function adjacentSwap(arr, i) {\n    const t = arr[i];\n    arr[i] = arr[i + 1];\n    arr[i + 1] = t;\n  }\n\n  function buildPalmer() {\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    const arr = Array.from({ length: n }, (_, i) => i);\n    arr.sort((a, b) => scores[a] - scores[b] || a - b);\n    return arr;\n  }\n\n  function buildJohnson() {\n    const A = [];\n    const B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    return A.concat(B);\n  }\n\n  function buildTotal() {\n    const tot = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < m; k++) s += times[i][k];\n      tot[i] = s;\n    }\n    const arr = Array.from({ length: n }, (_, i) => i);\n    arr.sort((a, b) => tot[b] - tot[a] || a - b);\n    return arr;\n  }\n\n  // Build multiple initial candidates\n  const candidates = [];\n  if (m === 2) candidates.push(buildJohnson());\n  else {\n    candidates.push(buildPalmer());\n    candidates.push(buildTotal());\n    // Reverse Palmer\n    const rp = buildPalmer();\n    rp.reverse();\n    candidates.push(rp);\n  }\n\n  let best = candidates[0];\n  let bestMs = makespan(best);\n  for (let c = 1; c < candidates.length; c++) {\n    const ms = makespan(candidates[c]);\n    if (ms < bestMs) {\n      bestMs = ms;\n      best = candidates[c];\n    }\n  }\n\n  // Local search: adjacent swaps (faster, more targeted)\n  const maxIter = n <= 20 ? 400 : 200;\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n - 1; i++) {\n      adjacentSwap(best, i);\n      const ms = makespan(best);\n      if (ms < bestMs) {\n        bestMs = ms;\n        improved = true;\n        // Re-scan from start to catch cascading improvements\n        i = -1;\n      } else {\n        adjacentSwap(best, i);\n      }\n    }\n  }\n\n  // Second pass: full pairwise swaps for refinement\n  const maxIter2 = n <= 20 ? 60 : 30;\n  improved = true;\n  iter = 0;\n  while (improved && iter < maxIter2) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n        } else {\n          swap(best, i, j);\n        }\n      }\n    }\n  }\n\n  return best;\n}",
+            "score": 0.9326592933624568,
+            "ledger": [
+              {
+                "id": "r2-warm-1",
+                "valid": false,
+                "error": "Unexpected identifier 'need'",
+                "failedCase": 0,
+                "completed": 0,
+                "accepted": false
+              },
+              {
+                "id": "r2-warm-2",
+                "valid": true,
+                "score": 0.9336991780012865,
+                "cases": [
+                  {
+                    "makespan": 1105,
+                    "baseline": 1224
+                  },
+                  {
+                    "makespan": 1241,
+                    "baseline": 1369
+                  },
+                  {
+                    "makespan": 4974,
+                    "baseline": 5245
+                  },
+                  {
+                    "makespan": 2025,
+                    "baseline": 2420
+                  },
+                  {
+                    "makespan": 1725,
+                    "baseline": 1791
+                  },
+                  {
+                    "makespan": 3731,
+                    "baseline": 3859
+                  },
+                  {
+                    "makespan": 1705,
+                    "baseline": 1847
+                  },
+                  {
+                    "makespan": 1806,
+                    "baseline": 1928
+                  },
+                  {
+                    "makespan": 5708,
+                    "baseline": 5841
+                  },
+                  {
+                    "makespan": 2236,
+                    "baseline": 2422
+                  },
+                  {
+                    "makespan": 1296,
+                    "baseline": 1340
+                  },
+                  {
+                    "makespan": 4018,
+                    "baseline": 4218
+                  }
+                ],
+                "accepted": true
+              },
+              {
+                "id": "r2-fork-b1-1",
+                "valid": true,
+                "score": 0.9336991780012865,
+                "cases": [
+                  {
+                    "makespan": 1105,
+                    "baseline": 1224
+                  },
+                  {
+                    "makespan": 1241,
+                    "baseline": 1369
+                  },
+                  {
+                    "makespan": 4974,
+                    "baseline": 5245
+                  },
+                  {
+                    "makespan": 2025,
+                    "baseline": 2420
+                  },
+                  {
+                    "makespan": 1725,
+                    "baseline": 1791
+                  },
+                  {
+                    "makespan": 3731,
+                    "baseline": 3859
+                  },
+                  {
+                    "makespan": 1705,
+                    "baseline": 1847
+                  },
+                  {
+                    "makespan": 1806,
+                    "baseline": 1928
+                  },
+                  {
+                    "makespan": 5708,
+                    "baseline": 5841
+                  },
+                  {
+                    "makespan": 2236,
+                    "baseline": 2422
+                  },
+                  {
+                    "makespan": 1296,
+                    "baseline": 1340
+                  },
+                  {
+                    "makespan": 4018,
+                    "baseline": 4218
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r2-fork-b1-2",
+                "valid": true,
+                "score": 0.9326592933624568,
+                "cases": [
+                  {
+                    "makespan": 1105,
+                    "baseline": 1224
+                  },
+                  {
+                    "makespan": 1261,
+                    "baseline": 1369
+                  },
+                  {
+                    "makespan": 4974,
+                    "baseline": 5245
+                  },
+                  {
+                    "makespan": 1989,
+                    "baseline": 2420
+                  },
+                  {
+                    "makespan": 1728,
+                    "baseline": 1791
+                  },
+                  {
+                    "makespan": 3731,
+                    "baseline": 3859
+                  },
+                  {
+                    "makespan": 1643,
+                    "baseline": 1847
+                  },
+                  {
+                    "makespan": 1808,
+                    "baseline": 1928
+                  },
+                  {
+                    "makespan": 5708,
+                    "baseline": 5841
+                  },
+                  {
+                    "makespan": 2292,
+                    "baseline": 2422
+                  },
+                  {
+                    "makespan": 1290,
+                    "baseline": 1340
+                  },
+                  {
+                    "makespan": 4018,
+                    "baseline": 4218
+                  }
+                ],
+                "accepted": true
+              }
+            ],
+            "selected": "r2-fork-b1-2"
+          }
+        ]
+      },
+      "flush": {
+        "selected": {
+          "code": "function solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  // Initial heuristic: Johnson-like for 2 machines, Palmer for more\n  let best;\n  if (m === 2) {\n    // Johnson's rule: partition into A (times[i][0] < times[i][1]) and B\n    const A = [];\n    const B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    best = A.concat(B);\n  } else {\n    // Palmer's heuristic: sort by sum(first half) - sum(second half)\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    best = Array.from({ length: n }, (_, i) => i);\n    best.sort((a, b) => scores[a] - scores[b] || a - b);\n  }\n\n  let bestMs = makespan(best);\n\n  // Local search with pairwise swaps\n  const maxIter = n <= 20 ? 300 : 150;\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n        } else {\n          swap(best, i, j);\n        }\n      }\n    }\n  }\n\n  return best;\n}",
+          "score": 0.9336991780012865,
+          "ledger": [
+            {
+              "id": "r2-warm-1",
+              "valid": false,
+              "error": "Unexpected identifier 'need'",
+              "failedCase": 0,
+              "completed": 0,
+              "accepted": false
+            },
+            {
+              "id": "r2-warm-2",
+              "valid": true,
+              "score": 0.9336991780012865,
+              "cases": [
+                {
+                  "makespan": 1105,
+                  "baseline": 1224
+                },
+                {
+                  "makespan": 1241,
+                  "baseline": 1369
+                },
+                {
+                  "makespan": 4974,
+                  "baseline": 5245
+                },
+                {
+                  "makespan": 2025,
+                  "baseline": 2420
+                },
+                {
+                  "makespan": 1725,
+                  "baseline": 1791
+                },
+                {
+                  "makespan": 3731,
+                  "baseline": 3859
+                },
+                {
+                  "makespan": 1705,
+                  "baseline": 1847
+                },
+                {
+                  "makespan": 1806,
+                  "baseline": 1928
+                },
+                {
+                  "makespan": 5708,
+                  "baseline": 5841
+                },
+                {
+                  "makespan": 2236,
+                  "baseline": 2422
+                },
+                {
+                  "makespan": 1296,
+                  "baseline": 1340
+                },
+                {
+                  "makespan": 4018,
+                  "baseline": 4218
+                }
+              ],
+              "accepted": true
+            },
+            {
+              "id": "r2-flush-b1-1",
+              "valid": true,
+              "score": 0.9341886350723013,
+              "cases": [
+                {
+                  "makespan": 1105,
+                  "baseline": 1224
+                },
+                {
+                  "makespan": 1254,
+                  "baseline": 1369
+                },
+                {
+                  "makespan": 4955,
+                  "baseline": 5245
+                },
+                {
+                  "makespan": 2025,
+                  "baseline": 2420
+                },
+                {
+                  "makespan": 1725,
+                  "baseline": 1791
+                },
+                {
+                  "makespan": 3731,
+                  "baseline": 3859
+                },
+                {
+                  "makespan": 1705,
+                  "baseline": 1847
+                },
+                {
+                  "makespan": 1806,
+                  "baseline": 1928
+                },
+                {
+                  "makespan": 5708,
+                  "baseline": 5841
+                },
+                {
+                  "makespan": 2236,
+                  "baseline": 2422
+                },
+                {
+                  "makespan": 1296,
+                  "baseline": 1340
+                },
+                {
+                  "makespan": 4018,
+                  "baseline": 4218
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r2-flush-b1-2",
+              "valid": false,
+              "error": "Cannot read properties of undefined (reading '0')",
+              "failedCase": 0,
+              "completed": 0,
+              "accepted": false
+            },
+            {
+              "id": "r2-flush-b1-3",
+              "valid": false,
+              "error": "Cannot read properties of undefined (reading '0')",
+              "failedCase": 0,
+              "completed": 0,
+              "accepted": false
+            },
+            {
+              "id": "r2-flush-b1-4",
+              "valid": false,
+              "error": "Cannot read properties of undefined (reading '0')",
+              "failedCase": 0,
+              "completed": 0,
+              "accepted": false
+            }
+          ],
+          "selected": "r2-warm-2"
+        },
+        "branches": [
+          {
+            "code": "function solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  // Initial heuristic: Johnson-like for 2 machines, Palmer for more\n  let best;\n  if (m === 2) {\n    // Johnson's rule: partition into A (times[i][0] < times[i][1]) and B\n    const A = [];\n    const B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    best = A.concat(B);\n  } else {\n    // Palmer's heuristic: sort by sum(first half) - sum(second half)\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    best = Array.from({ length: n }, (_, i) => i);\n    best.sort((a, b) => scores[a] - scores[b] || a - b);\n  }\n\n  let bestMs = makespan(best);\n\n  // Local search with pairwise swaps\n  const maxIter = n <= 20 ? 300 : 150;\n  let improved = true;\n  let iter = 0;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(best, i, j);\n        const ms = makespan(best);\n        if (ms < bestMs) {\n          bestMs = ms;\n          improved = true;\n        } else {\n          swap(best, i, j);\n        }\n      }\n    }\n  }\n\n  return best;\n}",
+            "score": 0.9336991780012865,
+            "ledger": [
+              {
+                "id": "r2-warm-1",
+                "valid": false,
+                "error": "Unexpected identifier 'need'",
+                "failedCase": 0,
+                "completed": 0,
+                "accepted": false
+              },
+              {
+                "id": "r2-warm-2",
+                "valid": true,
+                "score": 0.9336991780012865,
+                "cases": [
+                  {
+                    "makespan": 1105,
+                    "baseline": 1224
+                  },
+                  {
+                    "makespan": 1241,
+                    "baseline": 1369
+                  },
+                  {
+                    "makespan": 4974,
+                    "baseline": 5245
+                  },
+                  {
+                    "makespan": 2025,
+                    "baseline": 2420
+                  },
+                  {
+                    "makespan": 1725,
+                    "baseline": 1791
+                  },
+                  {
+                    "makespan": 3731,
+                    "baseline": 3859
+                  },
+                  {
+                    "makespan": 1705,
+                    "baseline": 1847
+                  },
+                  {
+                    "makespan": 1806,
+                    "baseline": 1928
+                  },
+                  {
+                    "makespan": 5708,
+                    "baseline": 5841
+                  },
+                  {
+                    "makespan": 2236,
+                    "baseline": 2422
+                  },
+                  {
+                    "makespan": 1296,
+                    "baseline": 1340
+                  },
+                  {
+                    "makespan": 4018,
+                    "baseline": 4218
+                  }
+                ],
+                "accepted": true
+              },
+              {
+                "id": "r2-flush-b1-1",
+                "valid": true,
+                "score": 0.9341886350723013,
+                "cases": [
+                  {
+                    "makespan": 1105,
+                    "baseline": 1224
+                  },
+                  {
+                    "makespan": 1254,
+                    "baseline": 1369
+                  },
+                  {
+                    "makespan": 4955,
+                    "baseline": 5245
+                  },
+                  {
+                    "makespan": 2025,
+                    "baseline": 2420
+                  },
+                  {
+                    "makespan": 1725,
+                    "baseline": 1791
+                  },
+                  {
+                    "makespan": 3731,
+                    "baseline": 3859
+                  },
+                  {
+                    "makespan": 1705,
+                    "baseline": 1847
+                  },
+                  {
+                    "makespan": 1806,
+                    "baseline": 1928
+                  },
+                  {
+                    "makespan": 5708,
+                    "baseline": 5841
+                  },
+                  {
+                    "makespan": 2236,
+                    "baseline": 2422
+                  },
+                  {
+                    "makespan": 1296,
+                    "baseline": 1340
+                  },
+                  {
+                    "makespan": 4018,
+                    "baseline": 4218
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r2-flush-b1-2",
+                "valid": false,
+                "error": "Cannot read properties of undefined (reading '0')",
+                "failedCase": 0,
+                "completed": 0,
+                "accepted": false
+              },
+              {
+                "id": "r2-flush-b1-3",
+                "valid": false,
+                "error": "Cannot read properties of undefined (reading '0')",
+                "failedCase": 0,
+                "completed": 0,
+                "accepted": false
+              },
+              {
+                "id": "r2-flush-b1-4",
+                "valid": false,
+                "error": "Cannot read properties of undefined (reading '0')",
+                "failedCase": 0,
+                "completed": 0,
+                "accepted": false
+              }
+            ],
+            "selected": "r2-warm-2"
+          }
+        ]
+      },
+      "continuation": {
+        "selected": {
+          "code": "function solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  // Precompute totals\n  const totals = new Array(n);\n  for (let i = 0; i < n; i++) {\n    let s = 0;\n    for (let k = 0; k < m; k++) s += times[i][k];\n    totals[i] = s;\n  }\n\n  // Generate multiple initial candidates\n  const candidates = [];\n\n  // Palmer's heuristic\n  if (m > 2) {\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => scores[a] - scores[b] || a - b));\n  }\n\n  // Johnson's rule for 2 machines\n  if (m === 2) {\n    const A = [], B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    candidates.push(A.concat(B));\n  }\n\n  // Total processing time ascending\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => totals[a] - totals[b] || a - b));\n\n  // First machine ascending\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => times[a][0] - times[b][0] || a - b));\n\n  // Last machine descending\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => times[b][m - 1] - times[a][m - 1] || a - b));\n\n  // Pick best initial by makespan\n  let bestOrder = candidates[0];\n  let bestMs = makespan(bestOrder);\n  for (let c = 1; c < candidates.length; c++) {\n    const ms = makespan(candidates[c]);\n    if (ms < bestMs) {\n      bestMs = ms;\n      bestOrder = candidates[c];\n    }\n  }\n\n  // Local search: pairwise swaps\n  const cur = bestOrder.slice();\n  let curMs = bestMs;\n  let improved = true;\n  let iter = 0;\n  const maxIter = n <= 20 ? 400 : 200;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(cur, i, j);\n        const ms = makespan(cur);\n        if (ms < curMs) {\n          curMs = ms;\n          improved = true;\n        } else {\n          swap(cur, i, j);\n        }\n      }\n    }\n  }\n\n  // Insertion moves: remove job, reinsert at best position\n  let improved2 = true;\n  let iter2 = 0;\n  const maxIter2 = n <= 20 ? 150 : 80;\n  while (improved2 && iter2 < maxIter2) {\n    improved2 = false;\n    iter2++;\n    for (let i = 0; i < n; i++) {\n      const job = cur[i];\n      cur.splice(i, 1);\n      let bestPos = i;\n      let bestMsPos = Infinity;\n      for (let pos = 0; pos < n; pos++) {\n        cur.splice(pos, 0, job);\n        const ms = makespan(cur);\n        if (ms < bestMsPos) {\n          bestMsPos = ms;\n          bestPos = pos;\n        }\n        cur.splice(pos, 1);\n      }\n      cur.splice(bestPos, 0, job);\n      if (bestMsPos < curMs) {\n        curMs = bestMsPos;\n        improved2 = true;\n      }\n    }\n  }\n\n  // Final pairwise pass\n  let improved3 = true;\n  let iter3 = 0;\n  const maxIter3 = n <= 20 ? 100 : 50;\n  while (improved3 && iter3 < maxIter3) {\n    improved3 = false;\n    iter3++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(cur, i, j);\n        const ms = makespan(cur);\n        if (ms < curMs) {\n          curMs = ms;\n          improved3 = true;\n        } else {\n          swap(cur, i, j);\n        }\n      }\n    }\n  }\n\n  return cur;\n}",
+          "score": 0.9248021922464371,
+          "ledger": [
+            {
+              "id": "r2-warm-1",
+              "valid": false,
+              "error": "Unexpected identifier 'need'",
+              "failedCase": 0,
+              "completed": 0,
+              "accepted": false
+            },
+            {
+              "id": "r2-warm-2",
+              "valid": true,
+              "score": 0.9336991780012865,
+              "cases": [
+                {
+                  "makespan": 1105,
+                  "baseline": 1224
+                },
+                {
+                  "makespan": 1241,
+                  "baseline": 1369
+                },
+                {
+                  "makespan": 4974,
+                  "baseline": 5245
+                },
+                {
+                  "makespan": 2025,
+                  "baseline": 2420
+                },
+                {
+                  "makespan": 1725,
+                  "baseline": 1791
+                },
+                {
+                  "makespan": 3731,
+                  "baseline": 3859
+                },
+                {
+                  "makespan": 1705,
+                  "baseline": 1847
+                },
+                {
+                  "makespan": 1806,
+                  "baseline": 1928
+                },
+                {
+                  "makespan": 5708,
+                  "baseline": 5841
+                },
+                {
+                  "makespan": 2236,
+                  "baseline": 2422
+                },
+                {
+                  "makespan": 1296,
+                  "baseline": 1340
+                },
+                {
+                  "makespan": 4018,
+                  "baseline": 4218
+                }
+              ],
+              "accepted": true
+            },
+            {
+              "id": "r2-continuation-b1-1",
+              "valid": true,
+              "score": 0.9354956959286082,
+              "cases": [
+                {
+                  "makespan": 1105,
+                  "baseline": 1224
+                },
+                {
+                  "makespan": 1255,
+                  "baseline": 1369
+                },
+                {
+                  "makespan": 4955,
+                  "baseline": 5245
+                },
+                {
+                  "makespan": 2025,
+                  "baseline": 2420
+                },
+                {
+                  "makespan": 1742,
+                  "baseline": 1791
+                },
+                {
+                  "makespan": 3731,
+                  "baseline": 3859
+                },
+                {
+                  "makespan": 1705,
+                  "baseline": 1847
+                },
+                {
+                  "makespan": 1806,
+                  "baseline": 1928
+                },
+                {
+                  "makespan": 5708,
+                  "baseline": 5841
+                },
+                {
+                  "makespan": 2242,
+                  "baseline": 2422
+                },
+                {
+                  "makespan": 1300,
+                  "baseline": 1340
+                },
+                {
+                  "makespan": 4018,
+                  "baseline": 4218
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r2-continuation-b1-2",
+              "valid": true,
+              "score": 0.9354956959286082,
+              "cases": [
+                {
+                  "makespan": 1105,
+                  "baseline": 1224
+                },
+                {
+                  "makespan": 1255,
+                  "baseline": 1369
+                },
+                {
+                  "makespan": 4955,
+                  "baseline": 5245
+                },
+                {
+                  "makespan": 2025,
+                  "baseline": 2420
+                },
+                {
+                  "makespan": 1742,
+                  "baseline": 1791
+                },
+                {
+                  "makespan": 3731,
+                  "baseline": 3859
+                },
+                {
+                  "makespan": 1705,
+                  "baseline": 1847
+                },
+                {
+                  "makespan": 1806,
+                  "baseline": 1928
+                },
+                {
+                  "makespan": 5708,
+                  "baseline": 5841
+                },
+                {
+                  "makespan": 2242,
+                  "baseline": 2422
+                },
+                {
+                  "makespan": 1300,
+                  "baseline": 1340
+                },
+                {
+                  "makespan": 4018,
+                  "baseline": 4218
+                }
+              ],
+              "accepted": false
+            },
+            {
+              "id": "r2-continuation-b1-3",
+              "valid": false,
+              "error": "Unexpected identifier 'JSON'",
+              "failedCase": 0,
+              "completed": 0,
+              "accepted": false
+            },
+            {
+              "id": "r2-continuation-b1-4",
+              "valid": true,
+              "score": 0.9248021922464371,
+              "cases": [
+                {
+                  "makespan": 1104,
+                  "baseline": 1224
+                },
+                {
+                  "makespan": 1241,
+                  "baseline": 1369
+                },
+                {
+                  "makespan": 4921,
+                  "baseline": 5245
+                },
+                {
+                  "makespan": 2007,
+                  "baseline": 2420
+                },
+                {
+                  "makespan": 1692,
+                  "baseline": 1791
+                },
+                {
+                  "makespan": 3731,
+                  "baseline": 3859
+                },
+                {
+                  "makespan": 1594,
+                  "baseline": 1847
+                },
+                {
+                  "makespan": 1798,
+                  "baseline": 1928
+                },
+                {
+                  "makespan": 5708,
+                  "baseline": 5841
+                },
+                {
+                  "makespan": 2242,
+                  "baseline": 2422
+                },
+                {
+                  "makespan": 1285,
+                  "baseline": 1340
+                },
+                {
+                  "makespan": 4018,
+                  "baseline": 4218
+                }
+              ],
+              "accepted": true
+            }
+          ],
+          "selected": "r2-continuation-b1-4"
+        },
+        "branches": [
+          {
+            "code": "function solve(times) {\n  const n = times.length;\n  const m = times[0].length;\n\n  function makespan(order) {\n    const finish = new Array(m).fill(0);\n    for (let idx = 0; idx < n; idx++) {\n      const job = order[idx];\n      let t = 0;\n      for (let k = 0; k < m; k++) {\n        t = Math.max(t, finish[k]) + times[job][k];\n        finish[k] = t;\n      }\n    }\n    return finish[m - 1];\n  }\n\n  function swap(arr, i, j) {\n    const t = arr[i];\n    arr[i] = arr[j];\n    arr[j] = t;\n  }\n\n  // Precompute totals\n  const totals = new Array(n);\n  for (let i = 0; i < n; i++) {\n    let s = 0;\n    for (let k = 0; k < m; k++) s += times[i][k];\n    totals[i] = s;\n  }\n\n  // Generate multiple initial candidates\n  const candidates = [];\n\n  // Palmer's heuristic\n  if (m > 2) {\n    const half = Math.floor(m / 2);\n    const scores = new Array(n);\n    for (let i = 0; i < n; i++) {\n      let s = 0;\n      for (let k = 0; k < half; k++) s += times[i][k];\n      for (let k = m - half; k < m; k++) s -= times[i][k];\n      scores[i] = s;\n    }\n    candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => scores[a] - scores[b] || a - b));\n  }\n\n  // Johnson's rule for 2 machines\n  if (m === 2) {\n    const A = [], B = [];\n    for (let i = 0; i < n; i++) {\n      if (times[i][0] < times[i][1]) A.push(i);\n      else B.push(i);\n    }\n    A.sort((a, b) => times[a][0] - times[b][0] || a - b);\n    B.sort((a, b) => times[b][1] - times[a][1] || a - b);\n    candidates.push(A.concat(B));\n  }\n\n  // Total processing time ascending\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => totals[a] - totals[b] || a - b));\n\n  // First machine ascending\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => times[a][0] - times[b][0] || a - b));\n\n  // Last machine descending\n  candidates.push(Array.from({ length: n }, (_, i) => i).sort((a, b) => times[b][m - 1] - times[a][m - 1] || a - b));\n\n  // Pick best initial by makespan\n  let bestOrder = candidates[0];\n  let bestMs = makespan(bestOrder);\n  for (let c = 1; c < candidates.length; c++) {\n    const ms = makespan(candidates[c]);\n    if (ms < bestMs) {\n      bestMs = ms;\n      bestOrder = candidates[c];\n    }\n  }\n\n  // Local search: pairwise swaps\n  const cur = bestOrder.slice();\n  let curMs = bestMs;\n  let improved = true;\n  let iter = 0;\n  const maxIter = n <= 20 ? 400 : 200;\n  while (improved && iter < maxIter) {\n    improved = false;\n    iter++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(cur, i, j);\n        const ms = makespan(cur);\n        if (ms < curMs) {\n          curMs = ms;\n          improved = true;\n        } else {\n          swap(cur, i, j);\n        }\n      }\n    }\n  }\n\n  // Insertion moves: remove job, reinsert at best position\n  let improved2 = true;\n  let iter2 = 0;\n  const maxIter2 = n <= 20 ? 150 : 80;\n  while (improved2 && iter2 < maxIter2) {\n    improved2 = false;\n    iter2++;\n    for (let i = 0; i < n; i++) {\n      const job = cur[i];\n      cur.splice(i, 1);\n      let bestPos = i;\n      let bestMsPos = Infinity;\n      for (let pos = 0; pos < n; pos++) {\n        cur.splice(pos, 0, job);\n        const ms = makespan(cur);\n        if (ms < bestMsPos) {\n          bestMsPos = ms;\n          bestPos = pos;\n        }\n        cur.splice(pos, 1);\n      }\n      cur.splice(bestPos, 0, job);\n      if (bestMsPos < curMs) {\n        curMs = bestMsPos;\n        improved2 = true;\n      }\n    }\n  }\n\n  // Final pairwise pass\n  let improved3 = true;\n  let iter3 = 0;\n  const maxIter3 = n <= 20 ? 100 : 50;\n  while (improved3 && iter3 < maxIter3) {\n    improved3 = false;\n    iter3++;\n    for (let i = 0; i < n; i++) {\n      for (let j = i + 1; j < n; j++) {\n        swap(cur, i, j);\n        const ms = makespan(cur);\n        if (ms < curMs) {\n          curMs = ms;\n          improved3 = true;\n        } else {\n          swap(cur, i, j);\n        }\n      }\n    }\n  }\n\n  return cur;\n}",
+            "score": 0.9248021922464371,
+            "ledger": [
+              {
+                "id": "r2-warm-1",
+                "valid": false,
+                "error": "Unexpected identifier 'need'",
+                "failedCase": 0,
+                "completed": 0,
+                "accepted": false
+              },
+              {
+                "id": "r2-warm-2",
+                "valid": true,
+                "score": 0.9336991780012865,
+                "cases": [
+                  {
+                    "makespan": 1105,
+                    "baseline": 1224
+                  },
+                  {
+                    "makespan": 1241,
+                    "baseline": 1369
+                  },
+                  {
+                    "makespan": 4974,
+                    "baseline": 5245
+                  },
+                  {
+                    "makespan": 2025,
+                    "baseline": 2420
+                  },
+                  {
+                    "makespan": 1725,
+                    "baseline": 1791
+                  },
+                  {
+                    "makespan": 3731,
+                    "baseline": 3859
+                  },
+                  {
+                    "makespan": 1705,
+                    "baseline": 1847
+                  },
+                  {
+                    "makespan": 1806,
+                    "baseline": 1928
+                  },
+                  {
+                    "makespan": 5708,
+                    "baseline": 5841
+                  },
+                  {
+                    "makespan": 2236,
+                    "baseline": 2422
+                  },
+                  {
+                    "makespan": 1296,
+                    "baseline": 1340
+                  },
+                  {
+                    "makespan": 4018,
+                    "baseline": 4218
+                  }
+                ],
+                "accepted": true
+              },
+              {
+                "id": "r2-continuation-b1-1",
+                "valid": true,
+                "score": 0.9354956959286082,
+                "cases": [
+                  {
+                    "makespan": 1105,
+                    "baseline": 1224
+                  },
+                  {
+                    "makespan": 1255,
+                    "baseline": 1369
+                  },
+                  {
+                    "makespan": 4955,
+                    "baseline": 5245
+                  },
+                  {
+                    "makespan": 2025,
+                    "baseline": 2420
+                  },
+                  {
+                    "makespan": 1742,
+                    "baseline": 1791
+                  },
+                  {
+                    "makespan": 3731,
+                    "baseline": 3859
+                  },
+                  {
+                    "makespan": 1705,
+                    "baseline": 1847
+                  },
+                  {
+                    "makespan": 1806,
+                    "baseline": 1928
+                  },
+                  {
+                    "makespan": 5708,
+                    "baseline": 5841
+                  },
+                  {
+                    "makespan": 2242,
+                    "baseline": 2422
+                  },
+                  {
+                    "makespan": 1300,
+                    "baseline": 1340
+                  },
+                  {
+                    "makespan": 4018,
+                    "baseline": 4218
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r2-continuation-b1-2",
+                "valid": true,
+                "score": 0.9354956959286082,
+                "cases": [
+                  {
+                    "makespan": 1105,
+                    "baseline": 1224
+                  },
+                  {
+                    "makespan": 1255,
+                    "baseline": 1369
+                  },
+                  {
+                    "makespan": 4955,
+                    "baseline": 5245
+                  },
+                  {
+                    "makespan": 2025,
+                    "baseline": 2420
+                  },
+                  {
+                    "makespan": 1742,
+                    "baseline": 1791
+                  },
+                  {
+                    "makespan": 3731,
+                    "baseline": 3859
+                  },
+                  {
+                    "makespan": 1705,
+                    "baseline": 1847
+                  },
+                  {
+                    "makespan": 1806,
+                    "baseline": 1928
+                  },
+                  {
+                    "makespan": 5708,
+                    "baseline": 5841
+                  },
+                  {
+                    "makespan": 2242,
+                    "baseline": 2422
+                  },
+                  {
+                    "makespan": 1300,
+                    "baseline": 1340
+                  },
+                  {
+                    "makespan": 4018,
+                    "baseline": 4218
+                  }
+                ],
+                "accepted": false
+              },
+              {
+                "id": "r2-continuation-b1-3",
+                "valid": false,
+                "error": "Unexpected identifier 'JSON'",
+                "failedCase": 0,
+                "completed": 0,
+                "accepted": false
+              },
+              {
+                "id": "r2-continuation-b1-4",
+                "valid": true,
+                "score": 0.9248021922464371,
+                "cases": [
+                  {
+                    "makespan": 1104,
+                    "baseline": 1224
+                  },
+                  {
+                    "makespan": 1241,
+                    "baseline": 1369
+                  },
+                  {
+                    "makespan": 4921,
+                    "baseline": 5245
+                  },
+                  {
+                    "makespan": 2007,
+                    "baseline": 2420
+                  },
+                  {
+                    "makespan": 1692,
+                    "baseline": 1791
+                  },
+                  {
+                    "makespan": 3731,
+                    "baseline": 3859
+                  },
+                  {
+                    "makespan": 1594,
+                    "baseline": 1847
+                  },
+                  {
+                    "makespan": 1798,
+                    "baseline": 1928
+                  },
+                  {
+                    "makespan": 5708,
+                    "baseline": 5841
+                  },
+                  {
+                    "makespan": 2242,
+                    "baseline": 2422
+                  },
+                  {
+                    "makespan": 1285,
+                    "baseline": 1340
+                  },
+                  {
+                    "makespan": 4018,
+                    "baseline": 4218
+                  }
+                ],
+                "accepted": true
+              }
+            ],
+            "selected": "r2-continuation-b1-4"
+          }
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "id": "r2-continuation-b1-1",
+  "result": {
+    "valid": true,
+    "score": 0.9354956959286082,
+    "cases": [
+      {
+        "makespan": 1105,
+        "baseline": 1224
+      },
+      {
+        "makespan": 1255,
+        "baseline": 1369
+      },
+      {
+        "makespan": 4955,
+        "baseline": 5245
+      },
+      {
+        "makespan": 2025,
+        "baseline": 2420
+      },
+      {
+        "makespan": 1742,
+        "baseline": 1791
+      },
+      {
+        "makespan": 3731,
+        "baseline": 3859
+      },
+      {
+        "makespan": 1705,
+        "baseline": 1847
+      },
+      {
+        "makespan": 1806,
+        "baseline": 1928
+      },
+      {
+        "makespan": 5708,
+        "baseline": 5841
+      },
+      {
+        "makespan": 2242,
+        "baseline": 2422
+      },
+      {
+        "makespan": 1300,
+        "baseline": 1340
+      },
+      {
+        "makespan": 4018,
+        "baseline": 4218
+      }
+    ]
+  },
+  "accepted": false,
+  "elapsedSeconds": 55.438,
+  "usage": {
+    "input": 1047,
+    "output": 920,
+    "cacheRead": 1861,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 3828,
+    "cost": {
+      "input": 0,
+      "output": 0,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0
+    }
+  },
+  "stopReason": "stop"
+}

@@ -1,0 +1,42 @@
+{
+  "checks": [
+    "All 28 attempts have exactly one recorded assistant response, no reported reasoning tokens, and at most 1,536 output tokens.",
+    "Repeat 1: histories, attempt budgets, selection, incumbent protection, and independent held-out makespans checked.",
+    "Repeat 2: histories, attempt budgets, selection, incumbent protection, and independent held-out makespans checked."
+  ],
+  "totals": {
+    "continuation": {
+      "attempts": 8,
+      "accepted": 1,
+      "invalid": 1,
+      "rejectedValid": 6,
+      "inputTokens": 54733,
+      "cachedInputTokens": 46013,
+      "outputTokens": 10220,
+      "seconds": 628.262,
+      "meanHeldoutImprovementOverWarm": 0.0036949103257201688
+    },
+    "flush": {
+      "attempts": 8,
+      "accepted": 2,
+      "invalid": 3,
+      "rejectedValid": 3,
+      "inputTokens": 40018,
+      "cachedInputTokens": 29270,
+      "outputTokens": 9806,
+      "seconds": 607.567,
+      "meanHeldoutImprovementOverWarm": 0.04234513174358462
+    },
+    "fork": {
+      "attempts": 8,
+      "accepted": 3,
+      "invalid": 1,
+      "rejectedValid": 4,
+      "inputTokens": 15929,
+      "cachedInputTokens": 10101,
+      "outputTokens": 7302,
+      "seconds": 449.685,
+      "meanHeldoutImprovementOverWarm": 0.036349080736434225
+    }
+  }
+}

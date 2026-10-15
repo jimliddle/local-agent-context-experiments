@@ -1,0 +1,75 @@
+{
+  "id": "r2-fork-b2-2",
+  "result": {
+    "valid": true,
+    "score": 0.9274796450952421,
+    "cases": [
+      {
+        "makespan": 1105,
+        "baseline": 1224
+      },
+      {
+        "makespan": 1248,
+        "baseline": 1369
+      },
+      {
+        "makespan": 4921,
+        "baseline": 5245
+      },
+      {
+        "makespan": 2025,
+        "baseline": 2420
+      },
+      {
+        "makespan": 1697,
+        "baseline": 1791
+      },
+      {
+        "makespan": 3731,
+        "baseline": 3859
+      },
+      {
+        "makespan": 1622,
+        "baseline": 1847
+      },
+      {
+        "makespan": 1801,
+        "baseline": 1928
+      },
+      {
+        "makespan": 5708,
+        "baseline": 5841
+      },
+      {
+        "makespan": 2242,
+        "baseline": 2422
+      },
+      {
+        "makespan": 1284,
+        "baseline": 1340
+      },
+      {
+        "makespan": 4018,
+        "baseline": 4218
+      }
+    ]
+  },
+  "accepted": true,
+  "elapsedSeconds": 78.281,
+  "usage": {
+    "input": 1270,
+    "output": 1246,
+    "cacheRead": 2066,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 4582,
+    "cost": {
+      "input": 0,
+      "output": 0,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0
+    }
+  },
+  "stopReason": "stop"
+}

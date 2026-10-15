@@ -1,0 +1,27 @@
+{
+  "id": "r2-continuation-b1-3",
+  "result": {
+    "valid": false,
+    "error": "Unexpected identifier 'JSON'",
+    "failedCase": 0,
+    "completed": 0
+  },
+  "accepted": false,
+  "elapsedSeconds": 93.792,
+  "usage": {
+    "input": 1495,
+    "output": 1536,
+    "cacheRead": 6117,
+    "cacheWrite": 0,
+    "reasoning": 0,
+    "totalTokens": 9148,
+    "cost": {
+      "input": 0,
+      "output": 0,
+      "cacheRead": 0,
+      "cacheWrite": 0,
+      "total": 0
+    }
+  },
+  "stopReason": "length"
+}
